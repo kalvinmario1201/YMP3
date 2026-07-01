@@ -42,6 +42,15 @@
 
 }
 
+/* responsive navbar */
+.menu-toogle{
+    display: none;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 /* navbar kiri */
 .navbar-container .left-navbar {
     display: flex;
@@ -131,161 +140,6 @@
 
 }
 
-/* menu dropdown */
-.dropdown-btn{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-/* arrow /panah */
-.arrow{
-
-    transition:
-
-        transform .45s cubic-bezier(.68,-0.55,.27,1.55);
-
-}
-
-/* isi dropdown */
-.dropdown-menu{
-
-    position:absolute;
-
-    top:calc(100% + 18px);
-
-    left:50%;
-
-    transform:
-        translateX(-50%)
-        translateY(-15px);
-
-    min-width:240px;
-
-    background:rgba(255,255,255,.78);
-
-    backdrop-filter:blur(15px);
-    -webkit-backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.4);
-
-    border-radius:16px;
-
-    box-shadow:
-
-        0 15px 35px rgba(0,0,0,.15);
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:
-        opacity .35s,
-        transform .35s,
-        visibility .35s;
-
-}
-
-/* menu dropdown saat aktif */
-.dropdown.active .dropdown-menu{
-    opacity: 1;
-    visibility: visible;
-    transform:
-        translateX(50%),
-        translateY(0);
-}
-
-/* animasi panah */
-
-.dropdown.active .arrow{
-    transform: rotate(180deg);
-}
-
-.dropdown-menu li{
-
-    opacity:0;
-
-    transform:translateY(10px);
-
-    transition:
-
-        opacity .35s ease,
-
-        transform .35s ease;
-
-}
-
-.dropdown.active .dropdown-menu li{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-.dropdown.active .dropdown-menu li{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-.dropdown-menu li a{
-
-    display:block;
-
-    padding:15px 22px;
-
-    transition:
-
-        .3s;
-
-    border-radius:10px;
-
-}
-
-.dropdown-menu li:nth-child(1){
-
-    transition-delay:.05s;
-
-}
-
-.dropdown-menu li:nth-child(2){
-
-    transition-delay:.10s;
-
-}
-
-.dropdown-menu li:nth-child(3){
-
-    transition-delay:.15s;
-
-}
-
-.dropdown-menu li:nth-child(4){
-
-    transition-delay:.20s;
-
-}
-
-.dropdown-menu li a:hover{
-
-    background:#d8edf7;
-
-    transform:translateX(8px);
-
-    color:#0070b8;
-
-}
-
 /* content (isi) */
 
 .hero {
@@ -293,7 +147,22 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding-top: 200px;
+
+    min-height: 70vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 120px 20px 60px;
+
+    position: relative;
+
+    text-align: center;
+
+    color: white;
+
+    /* padding-top: 200px;
     padding-bottom: 30px;
     width: 100%;
     height: 243px;
@@ -303,7 +172,7 @@
     justify-content: center;
     text-align: center;
     color: white;
-    position: relative;
+    position: relative; */
 }
 
 .hero::before {
@@ -317,46 +186,61 @@
 }
 
 .hero-text {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 900px;
+    
     width: 100%;
+
+    padding: 0 20px;
+    /* width: 100%;
     margin-top: 50px;
     padding-bottom: 80px;
     position: relative;
     color: whitesmoke;
-    z-index: 1;
+    z-index: 1; */
 }
 
 .hero-text .head {
     margin-top: 0px;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 3rem;
+    font-size: clamp(2rem,5vw,3.2rem);
     margin-bottom: 10px;
 }
 
 .hero-text h1:nth-child(2) {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 3rem;
+    font-size: clamp(2rem,5vw,3rem);
     margin-bottom: 10px;
     padding-top: 10px;
 }
 
 .hero-text h3 {
     font-family: 'Dancing Script', cursive;
-    font-size: 50px;
+    font-size: clamp(1.4rem,4vw,3rem);
     font-weight: 400;
     letter-spacing: 1px;
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
 /* visi */
 
 .visi-container {
     background-color: beige;
+
     display: flex;
-    align-items: center;
-    gap: 100px;
+
     justify-content: center;
-    padding-top: 80px;
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 80px 40px;
+
+    flex-wrap: wrap;
 }
 
 .visi-title {
@@ -368,9 +252,10 @@
 
 .visi-content {
     font-family: 'Playpen Sans', cursive;
-    max-width: 680px;
+    max-width: 700px;
+    width: 100%;
     font-size: 24px;
-    line-height: 1.6;
+    line-height: 1.7;
     word-spacing: 1px;
 }
 
@@ -378,19 +263,19 @@
 .aktivitas-container {
     background-color: beige;
     margin-top: 0px;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: 80px 30px;
     display: flex;
     justify-content: center;
-    gap: 7rem;
+    gap: 50px;
+    flex-wrap: wrap;
     z-index: 1;
 
 }
 
 .card {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: min(250px,80vw);
+    aspect-ratio: 1/1;
     border-radius: 50;
 }
 
@@ -479,11 +364,12 @@
 
 .container-aktivitas-terkini {
     background-color: bisque;
-    padding-bottom: 50px;
+    padding: 50px 20px 70px;
     display: flex;
     justify-content: center;
-    gap: 50px;
+    align-items: stretch;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 .container-aktivitas-terkini .box-preview .dark-link {
@@ -492,44 +378,56 @@
 }
 
 .box-preview {
-    background-color: whitesmoke;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    margin-left: 0px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: justify;
+    width: 100%;
+    max-width: 360px;
+    transition: .3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .box-preview img {
-    width: 350px;
-    height: 250px;
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    /* height: 250px;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 
 .box-preview p {
-    width: 250px;
+    width: auto;
+    padding: 15px 20px;
+    line-height: 1.7;
+    flex-grow: 1;
+    /* width: 250px;
     padding-top: 5px;
     padding-left: 20px;
-    align-content: center;
+    align-content: center; */
 }
 
 .box-preview-judul {
-    width: 200px;
+    width: auto;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* width: 200px;
     padding-top: 15px;
     padding-bottom: 10px;
     padding-left: 20px;
     font-size: 1.2em;
     height: 50px;
     font-weight: bold;
-    text-align: left;
+    text-align: left; */
 }
 
 .box-preview-credit {
-    font-family: 'Times New Roman', Times, serif;
+    padding: 0 20px;
+    width: auto;
+    /* font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     font-size: 14px;
     font-weight: normal;
@@ -537,16 +435,23 @@
     width: 250px;
     padding-left: 20px;
     padding-bottom: 10px;
-    padding-top: 15px;
+    padding-top: 15px; */
+}
+
+.box-preview:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
 }
 
 .more {
-
+    margin: 20px;
     align-self: flex-end;
+    font-weight: bold;
+    /* align-self: flex-end;
     margin-top: 5px;
     color: blue;
     text-decoration: none;
-    font-weight: 500px;
+    font-weight: 500px; */
 }
 
 .more:hover {
@@ -581,8 +486,9 @@
 
 .join-us-section .join-us-icons {
     display: flex;
-    gap: 100px;
+    gap: 60px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .join-us-section .card {
@@ -750,4 +656,108 @@
 .card:hover .caption {
     top: -55px;
     opacity: 1;
+}
+
+@media (max-width:768px){
+    .navbar-container{
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        padding: 15px 20px;
+
+        gap: 0;
+    }
+
+    .menu-toogle{
+        display: block;
+    }
+
+    .right-navbar{
+        width: 100%;
+
+        display: none;
+    }
+
+    .right-navbar.active{
+        display: block;
+    }
+
+    .right-navbar ul{
+        width: 100%;
+
+        margin: 20px 0 0;
+
+        gap: 0;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .right-navbar ul li{
+        width: 100%;
+
+        text-align: center;
+
+        padding: 15px 0;
+    }
+
+    .hero{
+        min-height: 60vh;
+
+        padding: 110px 20px 40px;
+    }
+
+    .hero-text{
+        padding: 0 10px;
+    }
+
+    .hero-text h3{
+        line-height: 1.5;
+    }
+
+    .visi-container{
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 50px 20px;
+    }
+
+    .visi-title{
+        font-size: 2rem;
+    }
+
+    .visi-content{
+        font-size: 18px;
+    }
+
+    .aktivitas-container{
+        gap: 35px;
+        padding: 50px 20px;
+    }
+
+    .join-us-section{
+        gap: 50px;
+        padding: 60px 20px;
+    }
+
+    .join-us-title{
+        font-size: 2rem;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .join-us-icons{
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+    }
+
+    .container-aktivitas-terkini{
+        padding: 40px 15px;
+    }
+
+    .box-preview{
+        max-width: 100%;
+    }
 }
