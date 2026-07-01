@@ -4,6 +4,29 @@
     scroll-behavior: smooth;
 }
 
+#backToTop{
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: #b41f39;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 999;
+}
+
+#backToTop.show{
+    opacity: 1;
+    visibility: visible;
+}
+
 /* header */
 .navbar-container{
     display:flex;
@@ -67,6 +90,12 @@
 }
 
 /* navbar kanan */
+.right-navbar{
+    transition: 
+        max-height .4s ease,
+        opacity .4s ease;
+}
+
 .navbar-container .right-navbar ul {
     display: flex;
     width: 830px; /* ini untuk mengecilkan gap sisi kanan */
@@ -541,7 +570,6 @@
 
 /* footer */
 .footer {
-    /* margin-top: 60px; */
     background-color: #f2f4f7;
     padding: 40px 50px 40px 100px;
     font-family: Arial, Helvetica, sans-serif;
@@ -551,11 +579,11 @@
 
 .footer-container {
     max-width: 1200px;
-    width: 1000px;
-    margin-top: 0;
+    width: 100%;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px;
 }
 
 .footer-logo {
@@ -564,15 +592,13 @@
 }
 
 .footer-col {
-    width: 300px;
+    width: auto;
     margin-right: 0px;
-    /* margin-top: 50px; */
 }
 
 .footer-col-2 {
-    width: 300px;
-    /* margin-top: 5px; */
-    margin-left: 110px;
+    width: auto;
+    margin: 0;
 }
 
 .footer h4 {
@@ -592,11 +618,12 @@
 .social-link {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 24px;
-    width: 400px;
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    margin: 0;
 }
 
 .social-link .follow-us {
@@ -606,10 +633,14 @@
 
 .social-icons {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    /* display: flex;
     flex-direction: row;
     gap: 70px;
     justify-content: center;
-    list-style: none;
+    list-style: none; */
 }
 
 .social-link .card {
@@ -656,6 +687,17 @@
 .card:hover .caption {
     top: -55px;
     opacity: 1;
+}
+
+.fade{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.fade.show{
+    opacity: 1;
+    transform: none;
 }
 
 @media (max-width:768px){
@@ -759,5 +801,33 @@
 
     .box-preview{
         max-width: 100%;
+    }
+
+    .footer{
+        text-align: center;
+    }
+
+    .footer-container{
+        grid-template-columns: 1fr;
+    }
+
+    .footer-logo{
+        margin: auto;
+    }
+
+    .footer-col{
+        align-items: center;
+    }
+
+    .footer-col-2{
+        align-items: center;
+    }
+
+    .social-link{
+        align-items: center;
+    }
+
+    .footer p{
+        font-size: 16px;
     }
 }
