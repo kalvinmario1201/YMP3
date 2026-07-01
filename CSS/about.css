@@ -644,7 +644,7 @@
 
 .footer-container {
     max-width: 1200px;
-    width: 1000px;
+    width: 100%;
     margin-top: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -663,7 +663,7 @@
 }
 
 .footer-col-2 {
-    width: 300px;
+    width: auto;
     /* margin-top: 5px; */
     margin-left: 110px;
 }
