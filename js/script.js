@@ -1,4 +1,4 @@
-const menuToogle = document.querySelector(".menu-toogle");
+const menuToggle = document.querySelector(".menu-toggle");
 const rightNavbar = document.querySelector(".right-navbar");
 const navLinks = document.querySelectorAll(".right-navbar a");
 const backToTop =document.getElementById("backToTop");
@@ -35,6 +35,6 @@ navLinks.forEach(link => {
     });
 });
 
-menuToogle.addEventListener("click", () => {
-    rightNavbar.classList.toogle("active");
+menuToggle.addEventListener("click", () => {
+    rightNavbar.classList.toggle("active");
 });
