@@ -719,30 +719,39 @@
         }
 
         .right-navbar{
-            width: 100%;
-
-            display: none;
+            display:none;
+            width:100%;
+            background:#cfe6ee;
         }
 
         .right-navbar.active{
-            display: block;
+            display:block;
         }
 
-        .right-navbar ul{
-            display: flex;
-            width: 100%;
-            margin: 20px 0 0;
-            gap: 0;
-            flex-direction: column;
-            align-items: center;
+        .navbar-container .right-navbar ul{
+            width:100%;
+            margin:0;
+            padding:0;
+
+            display:flex;
+            flex-direction:column;
+
+            justify-content:center;
+            align-items:center;
+
+            gap:0;
         }
 
-        .right-navbar ul li{
-            width: 100%;
+        .navbar-container .right-navbar ul li{
+            width:100%;
+            text-align:center;
+            padding:15px 0;
+        }
 
-            text-align: center;
-
-            padding: 15px 0;
+        .navbar-container .right-navbar ul li a{
+            display:block;
+            color:black;
+            padding:10px;
         }
 
         .hero{
