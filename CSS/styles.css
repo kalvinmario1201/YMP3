@@ -98,7 +98,8 @@
 
     .navbar-container .right-navbar ul {
         display: flex;
-        width: 830px; /* ini untuk mengecilkan gap sisi kanan */
+        width: 91%; /* ini untuk mengecilkan gap sisi kanan */
+        margin-right: 150px;
         margin-left: 150px;
         padding: 0px;
         justify-content: flex-end;
