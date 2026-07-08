@@ -516,7 +516,7 @@
 
     .join-us-section .join-us-icons {
         display: flex;
-        gap: 60px;
+        gap: 100px;
         justify-content: center;
         flex-wrap: wrap;
     }
