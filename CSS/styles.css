@@ -1,10 +1,10 @@
-    :root {
-    --color-primary: blueviolet;
+:root {
+    --color-primary: red;
     --color-secondary: #cfe6ee;
     --color-background: #f2f4f7;
     --color-surface: #ffffff;
     --color-text: #222222;
-    }
+}
     
     * {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
