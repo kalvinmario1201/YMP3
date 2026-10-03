@@ -303,7 +303,7 @@
     .aktivitas-container {
         background-color: beige;
         margin-top: 0px;
-        padding: 90px 50px;
+        padding: 90px 50px 90px;
         display: flex;
         justify-content: center;
         gap: 150px;
@@ -331,9 +331,10 @@
     .caption-container {
         position: absolute;
         left: 50%;
-        top: -10%;
+        bottom: -23%;
         transform: translate(-50%, -50%);
-        color: blueviolet;
+        background: blue;
+        color: bisque;
         padding: 8px 12px;
         border-radius: 8px;
         font-size: 18px;
@@ -341,7 +342,7 @@
         text-align: center;
         white-space: nowrap;
         opacity: 1;
-        transition: opacity 0.5s ease, top 0.5s ease;
+        transition: opacity 0.5s ease, bottom 0.5s ease;
 
 
     }
@@ -352,8 +353,8 @@
     }
 
     .card-container:hover .caption-container {
-        top: -55px;
-        opacity: 1;
+        bottom : -10px;
+        opacity: 0;
     }
 
     .vid-bumper {
@@ -365,6 +366,7 @@
         height: 70vh;
         overflow: hidden;
         margin: 0 auto;
+        padding: 60px 0px;
     }
 
     .vid-bumper video {
@@ -510,11 +512,11 @@
     .join-us-section {
         margin-top: 0px;
         padding-top: 80px;
-        padding-bottom: 80px;
+        padding-bottom: 110px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 4rem;
+        gap: 2rem;
         z-index: 1;
 
     }
@@ -529,7 +531,7 @@
 
     .join-us-section .join-us-icons {
         display: flex;
-        gap: 100px;
+        gap: 270px;
         justify-content: center;
         flex-wrap: wrap;
     }
@@ -544,8 +546,8 @@
     }
 
     .join-us-section .card img {
-        width: 100%;
-        height: 100%;
+        width: 120%;
+        height: 120%;
         object-fit: cover;
         border-radius: 50%;
         transition: transform 0.5s ease;
@@ -557,18 +559,18 @@
     /* membuat tulisan ditampilkan diaatas gambar */
     .join-us-section .caption {
         position: absolute;
-        top: -40px;
+        bottom: -70px;
         left: 50%;
         transform: translateX(-50%);
-        background: blueviolet;
-        color: white;
+        background: blue;
+        color: bisque;
         padding: 8px 12px;
         border-radius: 8px;
         font-size: 18px;
         text-align: center;
         white-space: nowrap;
-        opacity: 0;
-        transition: opacity 0.5s ease, top 0.5s ease;
+        opacity: 1;
+        transition: opacity 0.5s ease, bottom 0.5s ease;
 
     }
 
@@ -578,8 +580,8 @@
     }
 
     .join-us-section .card:hover .caption {
-        top: -55px;
-        opacity: 1;
+        bottom: -55px;
+        opacity: 0;
     }
 
     /* footer */
@@ -677,7 +679,7 @@
     /* membuat tulisan ditampilkan diaatas gambar */
     .social-link .caption {
         position: absolute;
-        top: -40px;
+        bottom: -40px;
         left: 50%;
         transform: translateX(-50%);
         background: blue;
@@ -688,7 +690,7 @@
         text-align: center;
         white-space: nowrap;
         opacity: 0;
-        transition: opacity 0.5s ease, top 0.5s ease;
+        transition: opacity 0.5s ease, bottom 0.5s ease;
 
     }
 
@@ -698,7 +700,7 @@
     }
 
     .card:hover .caption {
-        top: -50px;
+        bottom: -50px;
         opacity: 1;
     }
 
