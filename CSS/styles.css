@@ -78,6 +78,7 @@
     /* responsive navbar */
     .menu-toggle{
         display: none;
+        width: 40px;
         font-size: 32px;
         background: none;
         border: none;
