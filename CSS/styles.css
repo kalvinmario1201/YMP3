@@ -715,7 +715,7 @@
         transform: none;
     }
 
-    @media (max-width:768px){
+    @media (max-width:1080px){
         .navbar-container{
             flex-wrap: wrap;
             justify-content: space-between;
