@@ -40,8 +40,8 @@
     /* header */
     .navbar-container{
         display:flex;
-        align-items:center;
-        justify-content:flex-start;
+        align-items: center;
+        justify-content:space-between;
 
         position:fixed;
         top:0;
@@ -49,7 +49,7 @@
 
         padding:8px 30px;
 
-        gap:5rem;
+        gap:200px;
 
         z-index:1000;
 
@@ -78,7 +78,7 @@
     /* responsive navbar */
     .menu-toggle{
         display: none;
-        width: 40px;
+        
         font-size: 32px;
         background: none;
         border: none;
@@ -89,12 +89,12 @@
     .navbar-container .left-navbar {
         display: flex;
         align-items: center;
+    
         margin-left: 20px;
     }
 
     .navbar-container .left-navbar ul {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         list-style: none;
         flex: 1;
@@ -102,20 +102,22 @@
 
     /* navbar kanan */
     .right-navbar{
+        width: 100%;
         transition: 
             max-height .4s ease,
             opacity .4s ease;
+        
     }
 
     .navbar-container .right-navbar ul {
         display: flex;
-        width: 100%; /* ini untuk mengecilkan gap sisi kanan */
-        margin-right: 150px;
+        width: 90%; /* ini untuk mengecilkan gap sisi kanan */
+        margin-right: 20px;
         margin-left: 0px;
         padding: 0px;
         justify-content: flex-end;
         list-style: none;
-        gap: 5rem;
+        gap: 7rem;
     }
 
     .navbar-container .right-navbar ul li{
@@ -142,7 +144,7 @@
 
         content:"";
 
-        position:absolute;
+        position:relative;
 
         left:0;
         bottom:-8px;
@@ -150,7 +152,7 @@
         width:0%;
         height:2px;
 
-        background:var(--color-background);
+        background:var(--color-secondary);
 
         transition:.35s ease;
 
@@ -344,8 +346,6 @@
         white-space: nowrap;
         opacity: 1;
         transition: opacity 0.5s ease, bottom 0.5s ease;
-
-
     }
 
     .card-container:hover img {
@@ -537,7 +537,7 @@
         flex-wrap: wrap;
     }
 
-    .join-us-section .card {
+    .join-us-section .join-card {
         position: relative;
         display: flex;
         flex-direction: row;
@@ -546,9 +546,9 @@
         border-radius: 50%;
     }
 
-    .join-us-section .card img {
-        width: 120%;
-        height: 120%;
+    .join-us-section .join-card img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         border-radius: 50%;
         transition: transform 0.5s ease;
@@ -558,9 +558,9 @@
     }
 
     /* membuat tulisan ditampilkan diaatas gambar */
-    .join-us-section .caption {
+    .join-us-section .join-caption {
         position: absolute;
-        bottom: -70px;
+        bottom: -45px;
         left: 50%;
         transform: translateX(-50%);
         background: blue;
@@ -575,14 +575,14 @@
 
     }
 
-    .join-us-section .card:hover img {
+    .join-us-section .join-card:hover img {
         transform: scale(1.2);
         cursor: pointer;
     }
 
-    .join-us-section .card:hover .caption {
-        bottom: -55px;
-        opacity: 0;
+    .join-us-section .join-card:hover .join-caption {
+        bottom: -50px;
+        opacity: 1;
     }
 
     /* footer */
@@ -659,7 +659,7 @@
         gap: 70px;
     }
 
-    .social-link .card {
+    .social-icons .social-card {
         display: flex;
         flex-direction: row;
         gap: 20px;
@@ -668,7 +668,7 @@
         border-radius: 50%;
     }
 
-    .social-link .card img {
+    .social-icons .social-card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -677,35 +677,25 @@
         z-index: 1;
     }
 
-    /* membuat tulisan ditampilkan diaatas gambar */
-    .social-link .caption {
+    /* membuat tulisan ditampilkan diatas gambar */
+    .social-icons .social-caption {
         position: absolute;
-        bottom: -40px;
-        left: 50%;
-        transform: translateX(-50%);
         background: blue;
-        color: white;
+        color: bisque;
         padding: 8px 12px;
         border-radius: 8px;
         font-size: 18px;
         text-align: center;
-        white-space: nowrap;
         opacity: 0;
         transition: opacity 0.5s ease, bottom 0.5s ease;
-
     }
 
-    .card:hover img {
+    .social-link .social-card:hover img {
         transform: scale(1.2);
         cursor: pointer;
     }
 
-    .card:hover .caption {
-        bottom: -50px;
-        opacity: 1;
-    }
-
-    .fade{
+    /* .fade{
         opacity: 0;
         transform: translateY(40px);
         transition: 1s;
@@ -714,7 +704,7 @@
     .fade.show{
         opacity: 1;
         transform: none;
-    }
+    } */
 
     @media (max-width:1080px){
         .navbar-container{
