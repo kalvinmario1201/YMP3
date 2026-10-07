@@ -49,7 +49,7 @@
 
         padding:8px 30px;
 
-        gap:100px;
+        gap:5rem;
 
         z-index:1000;
 
@@ -66,7 +66,7 @@
 
     .navbar-container.scrolled{
 
-        background:rgba(207,230,238,.97);
+        background:rgba(167, 41, 32, 0.97);
 
         box-shadow:
             0 6px 20px rgba(0,0,0,.12);
@@ -108,9 +108,9 @@
 
     .navbar-container .right-navbar ul {
         display: flex;
-        width: 91%; /* ini untuk mengecilkan gap sisi kanan */
+        width: 100%; /* ini untuk mengecilkan gap sisi kanan */
         margin-right: 150px;
-        margin-left: 150px;
+        margin-left: 0px;
         padding: 0px;
         justify-content: flex-end;
         list-style: none;
