@@ -182,9 +182,9 @@
         background-image: 
             linear-gradient(
                 90deg,
-                rgba(30, 81, 190, 0.5),
-                rgba(30, 81, 190, 0.5),
-                rgba(30, 81, 190, 0.5)
+                rgba(30, 81, 190, 1),
+                rgba(30, 81, 190, 0.7),
+                rgba(30, 81, 190, 0.1)   
             ),
             url('../asset/img/background homepage/background\ alam\ papua.jpg');
         background-size: cover;
@@ -280,40 +280,119 @@
         justify-content: center;
         align-items: center;
 
-        gap: 70px;
+        gap: 20px;
 
-        padding: 80px 40px;
+        padding: 60px 50px;
 
         flex-wrap: wrap;
+    }
+
+    .visi-text {
+        flex: 1;
+        padding-left: 10px;
     }
 
     .visi-title {
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
         white-space: nowrap;
-        font-size: 36px;
+        font-size: 32px;
+        margin-bottom: 30px;
     }
 
     .visi-content {
         font-family: Arial, Helvetica, sans-serif;
-        max-width: 700px;
+        max-width: 500px;
         width: 100%;
         font-size: 24px;
-        line-height: 1.7;
-        word-spacing: 1px;
+        line-height: 1.9;
+        word-spacing: 5px;
+        text-align: left;
+    }
+
+    /* slider */
+    .visi-image-slider {
+        flex: 1;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .visi-image-slider .slide {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .slide img {
+        width: 100%;
+        min-width: 100%;
+        max-width: 350px;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .prev-button,
+    .next-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    .prev-button {
+        left: 15px;
+    }
+
+    .next-button {
+        right: 15px;
+    }
+
+
+    .slider-dots {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 7px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+    }
+
+    .dot.active {
+        background-color: rgba(255, 255, 255, 1);
     }
 
     /* content preview */
     .aktivitas-container {
-        background-color: beige;
         margin-top: 0px;
-        padding: 90px 50px 90px;
-        display: flex;
+        padding-top: 80px;
+        padding-bottom: 110px;
+        background-color: var(--color-primary-background);
+        display:;
+        flex-direction: column;
         justify-content: center;
-        gap: 200px;
-        flex-wrap: wrap;
+        gap: 2rem;
         z-index: 1;
 
+    }
+
+    .program-title {
+        text-align: left;
+        color: var(--color-text);
+        padding-left: 55px;
     }
 
     .card-container {
