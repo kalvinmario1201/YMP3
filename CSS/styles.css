@@ -379,14 +379,21 @@
     .aktivitas-container {
         margin-top: 0px;
         padding-top: 80px;
-        padding-bottom: 110px;
+        padding-bottom: 80px;
         background-color: var(--color-primary-background);
-        display:;
+        display:flex;
         flex-direction: column;
         justify-content: center;
         gap: 2rem;
         z-index: 1;
+    }
 
+    .aktivitas-container h1 {
+        font-size: 60px;
+    }
+    
+    .aktivitas-container h4 {
+        font-size: 20px;
     }
 
     .program-title {
@@ -396,36 +403,58 @@
     }
 
     .card-container {
-        position: relative;
-        width: min(250px,80vw);
-        aspect-ratio: 1/1;
-        border-radius: 50%;
+        margin-top: 0px;
+        padding-top: 0px;
+        padding-left: 60px;
+        padding-bottom: 110px;
+        background-color: var(--color-primary-background);
+        flex-direction: row;
+        justify-content: left;
+        gap: 2rem;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .card-container img {
-        width: 100%;
-        height: 100%;
+        display: flex;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 80px;
+        height: 80px;
         object-fit: cover;
-        border-radius: 50%;
         transition: transform 0.5s ease;
         z-index: 1;
     }
 
-    .caption-container {
-        position: absolute;
-        left: 50%;
-        bottom: -24%;
-        transform: translate(-50%, -50%);
-        background: blue;
-        color: bisque;
-        padding: 8px 12px;
-        border-radius: 8px;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-        white-space: nowrap;
-        opacity: 1;
-        transition: opacity 0.5s ease, bottom 0.5s ease;
+    .card-container h2 {
+        font-size: 30px;
+        height: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+    }
+
+    .card-container p {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 25px;
+        padding-bottom: 100px;
+        line-height: 40px;
+    }
+
+    .card-container .content {
+        border: solid;
+        border-color: #D4A84F;
+        background-color: var(--color-surface);
+        color: #FFFFFF;
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 360px;
     }
 
     .card-container:hover img {
