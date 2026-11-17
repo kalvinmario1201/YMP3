@@ -110,13 +110,14 @@
 
     .navbar-container .right-navbar ul {
         display: flex;
-        width: 90%; /* ini untuk mengecilkan gap sisi kanan */
-        margin-right: 60px;
+        width: 70%; /* ini untuk mengecilkan gap sisi kanan */
+        margin-right: 180px;
         margin-left: 0px;
         padding: 0px;
         justify-content: flex-end;
         list-style: none;
-        gap: 7rem;
+        gap: 4rem;
+        display: flex;
     }
 
     .navbar-container .right-navbar ul li{
@@ -157,12 +158,6 @@
 
     }
 
-    .right-navbar ul li a:hover{
-
-        color:var(--color-background-hover);
-
-    }
-
     .right-navbar ul li a:hover::after{
 
         width:100%;
@@ -174,6 +169,104 @@
         color:var(--color-highlight-hover);
         background-color: rgba(0, 0, 255, 0);
 
+    }
+
+    .search-container {
+    position: relative;
+    z-index: 1000;
+    flex-shrink: 0;
+    }
+
+    /* Tombol ikon search */
+    .search-toggle {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+
+    /* Kotak pencarian */
+    .search-box {
+        display: none;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+
+        background: white;
+        padding: 8px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+        white-space: nowrap;
+        align-items: center;
+        gap: 5px;
+    }
+
+    /* Ketika aktif */
+    .search-box.active {
+        display: flex;
+        margin-right: 20px;
+        position: absolute;
+    }
+
+    /* Sembunyikan ikon ketika search aktif */
+    .search-container.active .search-toggle {
+        display: none;
+    }
+
+    /* Input pencarian */
+    .search-box input {
+        width: 200px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    /* Tombol cari */
+    .search-box button[type="submit"] {
+        background: #D4A84F;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Tombol tutup */
+    .search-close {
+        background: none;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        color: #333;
+    }
+    
+    .support {
+        background-color: #D4A84F;
+        color: var(--color-light-background-section);
+        border-radius: 10px;
+        width: 100px;
+        height: 50px;
+        margin-right: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .support a {
+        text-decoration: none;
+        color: inherit;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bolder;
+        padding: 10px 20px 10px 20px;
+    }
+
+    .support a:hover {
+        color: var(--color-primary-background);
     }
 
     /* content (isi) */
@@ -347,6 +440,15 @@
         border-radius: 50%;
         font-size: 28px;
         cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;;
+    }
+
+    .visi-image-slider:hover .prev-button,
+    .visi-image-slider:hover .next-button {
+        opacity: 1;
+        visibility: visible;
     }
 
     .prev-button {
@@ -566,16 +668,16 @@
         text-decoration: underline;
     }
 
-    /* .info-terkini {
-        background-color: #f2f4f7;
+    .info-terkini {
+        background-color: var(--color-primary-background);
+        color: #D4A84F;
         margin-top: 0px;
-        padding-top: 80px;
+        padding-top: 40px;
         padding-bottom: 40px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 50px;
         z-index: 1;
     }
 
@@ -591,7 +693,8 @@
     }
 
     .container-aktivitas-terkini {
-        background-color: #f2f4f7;
+        background-color: var(--color-primary-background);
+        color: #D4A84F;
         padding: 50px 20px 70px;
         display: flex;
         justify-content: center;
@@ -606,14 +709,13 @@
     }
 
     .box-preview {
-        background-color: var(--color-surface);
+        background-color: var(--color-light-background-section);
         border-radius: 16px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         width: 100%;
         max-width: 360px;
-        gap: 0.7rem;
         transition: .3s ease;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
@@ -626,6 +728,8 @@
 
     .box-preview p {
         width: auto;
+        height: 150px;
+        color: black;
         padding: 15px 20px;
         line-height: 1.7;
         flex-grow: 1;
@@ -638,19 +742,20 @@
         padding-top: 20px;
         font-size: 1.2rem;
         font-weight: bold;
-        height: 30px;
+        height: 45px;
     }
 
     .box-preview-credit {
         padding-left: 20px;
         width: auto;
-        height: 55px;
+        height: 50px;
+        color: var(--color-primary-background);
     }
 
     .box-preview:hover{
         transform: translateY(-10px);
         box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
-    } */
+    }
 
     .more {
         margin: 20px;
@@ -670,38 +775,26 @@
 
     /* content preview */
     .join-us-section {
-        background-image: url('../asset/img/background homepage/background pegaf.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
         margin-top: 0px;
         padding-top: 80px;
         padding-bottom: 110px;
         position: relative;
         display: flex;
-        height: 300px;
+        height: 200px;
         flex-direction: column;
         justify-content: center;
         gap: 2rem;
         z-index: 1;
     }
 
-    .join-us-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7); /* overlay gelap */
-        z-index: 0;
-    }
-
     .join-us-section .join-us-title {
         font-family: 'GFS Didot', serif;
+        position: relative;
+        color: var(--color-primary-background);
         font-weight: bold;
-        white-space: nowrap;
         font-size: 36px;
         align-self: center;
+        padding-bottom: 40px;
     }
 
     .join-us-section .join-us-icons {
@@ -709,6 +802,7 @@
         gap: 270px;
         justify-content: center;
         flex-wrap: wrap;
+        padding-bottom: 50px;
     }
 
     .join-us-section .join-card {
@@ -737,8 +831,8 @@
         bottom: -45px;
         left: 50%;
         transform: translateX(-50%);
-        background: blue;
-        color: bisque;
+        background: var(--color-primary-background);
+        color: #D4A84F;
         padding: 8px 12px;
         border-radius: 8px;
         font-size: 18px;
@@ -761,11 +855,11 @@
 
     /* footer */
     .footer {
-        background-color: var(--color-background) ;
+        background-color: var(--color-primary-background) ;
         padding: 40px 100px 20px 100px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
-        color: #333;
+        color: #FFFFFF;
         gap: 300px;
     }
 
@@ -838,15 +932,15 @@
     .social-icons .social-card {
         display: flex;
         flex-direction: row;
-        gap: 20px;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
+        padding-right: 8px;
     }
 
     .social-icons .social-card img {
-        width: 100%;
-        height: 100%;
+        width: 150%;
+        height: 150%;
         object-fit: cover;
         border-radius: 50%;
         transition: transform 0.5s ease;
@@ -869,6 +963,13 @@
     .social-link .social-card:hover img {
         transform: scale(1.2);
         cursor: pointer;
+    }
+
+    #backToTop {
+        border-radius: 50%;
+        background-color: #D4A84F;
+        color: red;
+        font-size: 35px;
     }
 
     @media (max-width:1080px){

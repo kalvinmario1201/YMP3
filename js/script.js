@@ -12,6 +12,12 @@ const nextButton = document.querySelector(".next-button");
 
 const dots = document.querySelectorAll(".dot");
 
+const searchToggle = document.querySelector(".search-toggle");
+const searchBox = document.querySelector(".search-box");
+
+const searchContainer = document.querySelector(".search-container");
+const searchClose = document.querySelector(".search-close");
+
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -91,3 +97,25 @@ dots.forEach((dot, index) => {
         showSlide(index);
     });
 });
+
+// Slide otomatis setiap 5 detik
+setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 2000);
+
+// Search Box
+if (searchToggle && searchBox && searchContainer && searchClose) {
+
+    // Ketika ikon Search diklik
+    searchToggle.addEventListener("click", () => {
+        searchContainer.classList.add("active");
+        searchBox.classList.add("active");
+    });
+
+    // Ketika tombol X diklik
+    searchClose.addEventListener("click", () => {
+        searchContainer.classList.remove("active");
+        searchBox.classList.remove("active");
+    });
+
+}
