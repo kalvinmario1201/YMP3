@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorotan YMP3</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="CSS/sorotan.css">
     <link rel="icon" href="img/ymp3.png">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -19,22 +21,50 @@
             <a href="index.html"><img src="img/ymp3.png" alt="ymp3" width="80"></a>
          </div>
 
+         <button type="button" class="menu-toggle" aria-label="Menu">
+            ☰
+        </button>
+
           <!-- navbar kanan -->
-        <div class="right-navbar">
+        <nav class="right-navbar">
+
             <ul>
+
                 <li>
-                    <a href="index.html">Beranda</a>
+                    <a href="index.html" >Beranda</a>
                 </li>
                 <li>
-                    <a href="about-ymp3.html">Tentang YMP3</a>
+                    <a href="tentang-ymp3.html">
+                        Tentang YMP3
+                    </a>
                 </li>
                 <li>
-                    <a href="#">Sorotan YMP3</a>
+                    <a href="sorotan.html" class="active">Sorotan YMP3</a>
                 </li>
+
                 <li>
                     <a href="bersama-ymp3.html">Bersama YMP3</a>
                 </li>
             </ul>
+        </nav>
+
+        <div class="search-container">
+            <button type="button" class="search-toggle" aria-label="Buka pencarian">
+                &#128269;
+            </button>
+
+            <form class="search-box">
+                <input type="text" placeholder="Cari sesuatu...">
+                <button type="submit">Cari</button>
+
+                <button type="button" class="search-close" aria-label="Tutup pencarian">
+                    &times;
+                </button>
+            </form>
+        </div>
+
+        <div class="support">
+            <a href="index.html#support-us">Dukung Kami</a>
         </div>
     </header>
 <br>
@@ -148,24 +178,24 @@
                 </div>
 
                 <div class="social-icons">
-                    <div class="card">
+                    <div class="social-card">
                         <a href="https://www.facebook.com/ymp3.papua.indonesia?mibextid=wwXIfr&mibextid=wwXIfr" target="_blank">
-                            <img src="img/sosmed/Logo Facebook.png" alt="Facebook Page" width="20">
-                            <div class="caption">Facebook</div>
+                            <img src="asset/img/icon/—Pngtree—facebook white icon vector_3570425.png" alt="Facebook Page" width="100">
+                            <div class="social-caption">Facebook</div>
                         </a>
                     </div>
 
-                    <div class="card">
+                    <div class="social-card">
                         <a href="https://www.instagram.com/ymp3.media?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-                            <img src="img/sosmed/Logo Instagram.png" alt="Instagram Page" width="20">
-                            <div class="caption">Instagram</div>
+                            <img src="asset/img/icon/—Pngtree—instagram white icon instagram instagram_3570419.png" alt="Instagram Page" width="100">
+                            <div class="social-caption">Instagram</div>
                         </a>
                     </div>
 
-                    <div class="card">
+                    <div class="social-card">
                         <a href="https://api.whatsapp.com/send/?phone=6281240020943&text&type=phone_number&app_absent=0" target="_blank">
-                            <img src="img/sosmed/Logo Whatsapp.png" alt="WhatsApp Contact" width="20" target="_blank">
-                            <div class="caption">WhatsApp</div>
+                            <img src="asset/img/icon/—Pngtree—whatsapp white icon free logo_3570414.png" alt="WhatsApp Contact" width="100" target="_blank">
+                            <div class="social-caption">WhatsApp</div>
                         </a>
                     </div>
                 </div>

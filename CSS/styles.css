@@ -7,7 +7,20 @@
     --color-text:#FFFFFF;
     --color-secondary-text: #B8C1CC;
     }
-    
+    html {
+    scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: var(--cream);
+        font-family: var(--font-body);
+        color: var(--text-dark);
+    }
+
+    a {
+        text-decoration: none;
+    }
     * {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         margin: 0px;
@@ -30,6 +43,10 @@
         visibility: hidden;
         transition: .3s;
         z-index: 999;
+        border-radius: 50%;
+        background-color: #D4A84F;
+        color: red;
+        font-size: 35px;
     }
 
     #backToTop.show{
@@ -39,40 +56,33 @@
 
     /* header */
     .navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+    
     position: fixed;
+
     top: 0;
     left: 0;
 
     width: 100%;
+
+    z-index: 100;
+
     box-sizing: border-box;
 
-    padding: 8px 30px;
+    padding: 12px 5%;
 
-    z-index: 1000;
+    
 
-    background: var(--color-primary-background);
+    background: rgba(7, 26, 51, 0.65);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     transition:
         background .4s ease,
         box-shadow .4s ease,
         padding .35s ease;
-    }
-
-    .navbar-container.scrolled{
-
-        background:var(--color-highlight-hover);
-
-        box-shadow:
-            0 6px 20px rgba(0,0,0,.12);
-
-        padding:5px 30px;
-
     }
 
     /* responsive navbar */
@@ -103,14 +113,14 @@
     .right-navbar {
         flex: 1;
         display: flex;
-        justify-content: center;
-
+        justify-content: right;
+        margin-right: 190px;
         transition:
             max-height .4s ease,
             opacity .4s ease;
     }
 
-    .navbar-container .right-navbar ul {
+    .right-navbar ul {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -119,16 +129,16 @@
 
         gap: 2.5rem;
 
-        margin: 0px;
+        margin: 0;
         padding: 0;
     }
 
-    .navbar-container .right-navbar ul li{
+    /* .navbar-container .right-navbar ul li{
         position: relative;
-    }
+    } */
 
     /* item */
-    .right-navbar ul li a{
+    .right-navbar a{
 
         color: var(--color-text);
         font-family:Arial, Helvetica, sans-serif;
@@ -174,6 +184,32 @@
 
     }
 
+    .right-navbar a:hover,
+    .right-navbar a.active {
+
+        color: var(--color-highlight-hover);
+
+    }
+
+
+    .right-navbar a.active::after {
+
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: -8px;
+
+        width: 0%;
+        height: 2px;
+
+        background: var(--color-highlight-hover);
+
+        transition: .35s ease;
+
+    }
+
     .search-container {
     position: relative;
     z-index: 1000;
@@ -216,7 +252,7 @@
     /* Ketika aktif */
     .search-box.active {
         display: flex;
-        margin-right: 20px;
+        margin-right: 10px;
     }
 
     /* Sembunyikan ikon ketika search aktif */
@@ -226,7 +262,7 @@
 
     /* Input pencarian */
     .search-box input {
-        width: 200px;
+        width: 90px;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -257,7 +293,7 @@
         border-radius: 10px;
         min-width: 130px;
         min-height: 45px;
-        margin-right: 50px;
+        margin-right: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -491,8 +527,8 @@
     /* content preview */
     .aktivitas-container {
         margin-top: 0px;
-        padding-top: 80px;
-        padding-bottom: 60px;
+        padding-top: 40px;
+        padding-bottom: 30px;
         background-color: var(--color-primary-background);
         display:flex;
         flex-direction: column;
@@ -508,6 +544,7 @@
     
     .aktivitas-container h4 {
         font-size: 20px;
+        color: #D4A84F;
     }
 
     .program-title {
@@ -520,7 +557,7 @@
         margin-top: 0px;
         padding-top: 0px;
         padding-left: 70px;
-        padding-bottom: 110px;
+        padding-bottom: 40px;
         background-color: var(--color-primary-background);
         flex-direction: row;
         justify-content: left;
@@ -781,6 +818,10 @@
         color: #6B21A8;
     }
 
+    #support-us {
+        scroll-margin-top: 100px;
+    }
+
     /* content preview */
     .join-us-section {
         margin-top: 0px;
@@ -973,12 +1014,7 @@
         cursor: pointer;
     }
 
-    #backToTop {
-        border-radius: 50%;
-        background-color: #D4A84F;
-        color: red;
-        font-size: 35px;
-    }
+    
 
     @media (max-width:1080px){
         .navbar-container{
