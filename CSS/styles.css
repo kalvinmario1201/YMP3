@@ -38,29 +38,30 @@
     }
 
     /* header */
-    .navbar-container{
-        display:flex;
-        align-items: center;
-        justify-content:space-between;
+    .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        position:fixed;
-        top:0;
-        width:98%;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-        padding:8px 30px;
+    width: 100%;
+    box-sizing: border-box;
 
+    padding: 8px 30px;
 
-        z-index:1000;
+    z-index: 1000;
 
-        background:var(--color-primary-background);
+    background: var(--color-primary-background);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-        backdrop-filter:blur(12px);
-        -webkit-backdrop-filter:blur(12px);
-
-        transition:
-            background .4s ease,
-            box-shadow .4s ease,
-            padding .35s ease;
+    transition:
+        background .4s ease,
+        box-shadow .4s ease,
+        padding .35s ease;
     }
 
     .navbar-container.scrolled{
@@ -85,39 +86,41 @@
     }
 
     /* navbar kiri */
-    .navbar-container .left-navbar {
+    .left-navbar {
         display: flex;
         align-items: center;
-    
-        margin-left: 20px;
+        flex-shrink: 0;
+        margin-left: 10px;
     }
 
-    .navbar-container .left-navbar ul {
-        display: flex;
-        align-items: center;
-        list-style: none;
-        flex: 1;
+    .left-navbar img {
+        display: block;
+        width: 80px;
+        height: auto;
     }
 
     /* navbar kanan */
-    .right-navbar{
-        width: 100%;
-        transition: 
+    .right-navbar {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        transition:
             max-height .4s ease,
             opacity .4s ease;
-        
     }
 
     .navbar-container .right-navbar ul {
         display: flex;
-        width: 70%; /* ini untuk mengecilkan gap sisi kanan */
-        margin-right: 180px;
-        margin-left: 0px;
-        padding: 0px;
-        justify-content: flex-end;
+        justify-content: center;
+        align-items: center;
+
         list-style: none;
-        gap: 4rem;
-        display: flex;
+
+        gap: 2.5rem;
+
+        margin: 0px;
+        padding: 0;
     }
 
     .navbar-container .right-navbar ul li{
@@ -144,7 +147,7 @@
 
         content:"";
 
-        position:relative;
+        position:absolute;
 
         left:0;
         bottom:-8px;
@@ -174,7 +177,12 @@
     .search-container {
     position: relative;
     z-index: 1000;
-    flex-shrink: 0;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
 
     /* Tombol ikon search */
@@ -209,12 +217,11 @@
     .search-box.active {
         display: flex;
         margin-right: 20px;
-        position: absolute;
     }
 
     /* Sembunyikan ikon ketika search aktif */
     .search-container.active .search-toggle {
-        display: none;
+        visibility: hidden;
     }
 
     /* Input pencarian */
@@ -248,19 +255,20 @@
         background-color: #D4A84F;
         color: var(--color-light-background-section);
         border-radius: 10px;
-        width: 100px;
-        height: 50px;
+        min-width: 130px;
+        min-height: 45px;
         margin-right: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-shrink: 0;
     }
 
     .support a {
         text-decoration: none;
         color: inherit;
         text-align: center;
-        font-size: 18px;
+        font-size: 19px;
         font-weight: bolder;
         padding: 10px 20px 10px 20px;
     }
