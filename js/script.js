@@ -101,7 +101,7 @@ dots.forEach((dot, index) => {
 // Slide otomatis setiap 5 detik
 setInterval(() => {
     showSlide(currentSlide + 1);
-}, 2000);
+}, 5000);
 
 // Search Box
 if (searchToggle && searchBox && searchContainer && searchClose) {

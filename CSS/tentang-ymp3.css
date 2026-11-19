@@ -332,9 +332,11 @@ a {
 
     display: inline-block;
 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
     color: var(--gold);
 
-    font-size: 13px;
+    font-size: 19px;
 
     font-weight: 700;
 
