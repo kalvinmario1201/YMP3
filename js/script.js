@@ -2,17 +2,25 @@ const menuToggle = document.querySelector(".menu-toggle");
 const rightNavbar = document.querySelector(".right-navbar");
 const navLinks = document.querySelectorAll(".right-navbar a");
 const backToTop = document.getElementById("backToTop");
-const fades = document.querySelectorAll(".fade");
+const reveals = document.querySelectorAll(".reveal");
 
-const slides = document.querySelector(".slide");
-const images = document.querySelectorAll(".visi-image-slider img");
-
-const prevButton = document.querySelector(".prev-button");
-const nextButton = document.querySelector(".next-button");
-
-const dots = document.querySelectorAll(".dot");
-
+// slider beranda
 const sliderContainer = document.querySelector(".visi-image-slider");
+
+const visiImages = sliderContainer?.querySelectorAll("img");
+const visiSlides = sliderContainer?.querySelector(".slide");
+const visiPrev = sliderContainer?.querySelector(".prev-button");
+const visiNext = sliderContainer?.querySelector(".next-button");
+const visiDots = sliderContainer?.querySelectorAll(".dot");
+
+// slider tentang YMP3
+const contentContainer = document.querySelector(".content-image-slider");
+
+const contentImages = contentContainer?.querySelectorAll("img");
+const contentSlides = contentContainer?.querySelector(".slide");
+const contentPrev = contentContainer?.querySelector(".prev-button");
+const contentNext = contentContainer?.querySelector(".next-button");
+const contentDots = contentContainer?.querySelectorAll(".dot");
 
 const searchToggle = document.querySelector(".search-toggle");
 const searchBox = document.querySelector(".search-box");
@@ -23,12 +31,14 @@ const searchClose = document.querySelector(".search-close");
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+            entry.target.classList.add("active");
+
+            observer.unobserve(entry.target);
         }
     });
 });
 
-fades.forEach(el => observer.observe(el));
+reveals.forEach(el => observer.observe(el));
 
 if (backToTop) {
 
@@ -59,67 +69,86 @@ menuToggle.addEventListener("click", () => {
     rightNavbar.classList.toggle("active");
 });
 
-let currentSlide = 0;
+// FUNGSI SLIDER
+function setupSlider(container) {
 
-function showSlide(index) {
-    if (index >= images.length) {
-        currentSlide = 0;
+    if (!container) return;
 
-    } else if (index < 0) {
-        currentSlide = images.length - 1;
-    } else {
-        currentSlide = index;
+    const images = container.querySelectorAll("img");
+    const slides = container.querySelector(".slide");
+    const prevButton = container.querySelector(".prev-button");
+    const nextButton = container.querySelector(".next-button");
+    const dots = container.querySelectorAll(".dot");
+
+    let currentSlide = 0;
+
+    if (!slides || images.length === 0) return;
+
+    // Menampilkan gambar
+    function showSlide(index) {
+
+        if (index >= images.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = images.length - 1;
+        } else {
+            currentSlide = index;
+        }
+
+        slides.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
+
+        dots.forEach(dot => {
+            dot.classList.remove("active");
+        });
+
+        if (dots[currentSlide]) {
+            dots[currentSlide].classList.add("active");
+        }
     }
 
-    slides.style.transform =
-        `translateX(-${currentSlide * 100}%)`;
-
-    dots.forEach(dot => {
-        dot.classList.remove("active");
-    });
-    if (dots[currentSlide]) {
-        dots[currentSlide].classList.add("active");
+    // Tombol Next
+    if (nextButton) {
+        nextButton.addEventListener("click", () => {
+            showSlide(currentSlide + 1);
+        });
     }
-}
 
-if (nextButton) {
-    nextButton.addEventListener("click", () => {
-        showSlide(currentSlide + 1);
+    // Tombol Previous
+    if (prevButton) {
+        prevButton.addEventListener("click", () => {
+            showSlide(currentSlide - 1);
+        });
+    }
+
+    // Navigasi Dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            showSlide(index);
+        });
     });
-}
 
-if (prevButton) {
-    prevButton.addEventListener("click", () => {
-        showSlide(currentSlide - 1);
-    });
-}
-
-dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-        showSlide(index);
-    });
-});
-
-// fitur swipe android
-if (sliderContainer) {
+    // Fitur Swipe
     let touchStartX = 0;
     let touchStartY = 0;
 
-    sliderContainer.addEventListener("touchstart", (event) => {
+    container.addEventListener("touchstart", event => {
         touchStartX = event.changedTouches[0].clientX;
         touchStartY = event.changedTouches[0].clientY;
     }, { passive: true });
 
-    sliderContainer.addEventListener("touchend", (event) => {
+    container.addEventListener("touchend", event => {
+
         const touchEndX = event.changedTouches[0].clientX;
         const touchEndY = event.changedTouches[0].clientY;
 
         const differenceX = touchStartX - touchEndX;
         const differenceY = touchStartY - touchEndY;
 
-        // Pastikan gerakan lebih dominan ke samping
-        if (Math.abs(differenceX) > 50 &&
-            Math.abs(differenceX) > Math.abs(differenceY)) {
+        if (
+            Math.abs(differenceX) > 50 &&
+            Math.abs(differenceX) > Math.abs(differenceY)
+        ) {
 
             if (differenceX > 0) {
                 showSlide(currentSlide + 1);
@@ -127,13 +156,23 @@ if (sliderContainer) {
                 showSlide(currentSlide - 1);
             }
         }
+
     }, { passive: true });
+
+    // Slide Otomatis
+    if (images.length > 1) {
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+    }
+
 }
 
-// Slide otomatis setiap 5 detik
-setInterval(() => {
-    showSlide(currentSlide + 1);
-}, 5000);
+// Jalankan Slider Beranda
+setupSlider(document.querySelector(".visi-image-slider"));
+
+// Jalankan Slider About YMP3
+setupSlider(document.querySelector(".content-image-slider"));
 
 // Search Box
 if (searchToggle && searchBox && searchContainer && searchClose) {

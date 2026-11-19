@@ -538,6 +538,111 @@ a {
 
 }
 
+/* slider */
+    .content-image-slider {
+        flex: 1;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+
+        /* fitur swipe untuk touchscreen */
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .content-image-slider .slide {
+        position: relative;
+        display: flex;
+        flex: 0 0 100%;
+        transition: transform 0.5s ease;
+    }
+
+    .content-image-slider .slide img {
+        width: 100%;
+        min-width: 100%;
+        max-width: 350px;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+    .content-image-slider .image-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 20px 35px;
+        box-sizing: border-box;
+
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0)
+        );
+
+        color: white;
+        z-index: 2;
+    }
+
+    .content-image-slider .image-caption p {
+        font-size: 14px;
+        margin: 0;
+        color: wheat;
+    }
+
+    .content-image-slider .prev-button,
+    .content-image-slider .next-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 28px;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;;
+    }
+
+    .content-image-slider:hover .prev-button,
+    .content-image-slider:hover .next-button {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .prev-button {
+        left: 15px;
+    }
+
+    .next-button {
+        right: 15px;
+    }
+
+
+    .slider-dots {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 7px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+    }
+
+    .dot.active {
+        background-color: rgba(255, 255, 255, 1);
+    }
+
 
 /* =====================================
    VISION & MISSION
@@ -1014,9 +1119,9 @@ a {
 
 .reveal.active {
 
-    opacity: 1;
+    opacity: 1 !important;
 
-    transform: translateY(0);
+    transform: none !important;
 
 }
 
