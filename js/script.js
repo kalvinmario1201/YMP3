@@ -12,6 +12,8 @@ const nextButton = document.querySelector(".next-button");
 
 const dots = document.querySelectorAll(".dot");
 
+const sliderContainer = document.querySelector(".visi-image-slider");
+
 const searchToggle = document.querySelector(".search-toggle");
 const searchBox = document.querySelector(".search-box");
 
@@ -97,6 +99,36 @@ dots.forEach((dot, index) => {
         showSlide(index);
     });
 });
+
+// fitur swipe android
+if (sliderContainer) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    sliderContainer.addEventListener("touchstart", (event) => {
+        touchStartX = event.changedTouches[0].clientX;
+        touchStartY = event.changedTouches[0].clientY;
+    }, { passive: true });
+
+    sliderContainer.addEventListener("touchend", (event) => {
+        const touchEndX = event.changedTouches[0].clientX;
+        const touchEndY = event.changedTouches[0].clientY;
+
+        const differenceX = touchStartX - touchEndX;
+        const differenceY = touchStartY - touchEndY;
+
+        // Pastikan gerakan lebih dominan ke samping
+        if (Math.abs(differenceX) > 50 &&
+            Math.abs(differenceX) > Math.abs(differenceY)) {
+
+            if (differenceX > 0) {
+                showSlide(currentSlide + 1);
+            } else {
+                showSlide(currentSlide - 1);
+            }
+        }
+    }, { passive: true });
+}
 
 // Slide otomatis setiap 5 detik
 setInterval(() => {

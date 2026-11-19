@@ -459,6 +459,11 @@
         position: relative;
         border-radius: 12px;
         overflow: hidden;
+
+        /* fitur swipe untuk touchscreen */
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
     }
 
     .visi-image-slider .slide {
