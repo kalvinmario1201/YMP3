@@ -911,6 +911,57 @@
         opacity: 1;
     }
 
+    .quote {
+        background-image: url('../asset/img/background homepage/Golden Sunrise Over Misty Mountains.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-bottom: solid;
+        border-color: #D4A84F;
+        height: 400px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-primary-background);
+    }
+
+    .quote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* overlay gelap */
+    z-index: 0;
+    }
+
+    .quote img {
+        width: 20%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: #B8C1CC;
+        position: relative;
+    }
+
+    .quote p {
+        color: white;
+        width: 630px;
+        font-weight: bolder;
+        font-size: 24px;
+        position: relative;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        line-height: 40px;
+    }
+
+    .quote .chapter {
+        color: wheat;
+        padding-top: 30px;
+    }
+
     /* footer */
     .footer {
         background-color: var(--color-primary-background) ;
