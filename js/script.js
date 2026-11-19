@@ -22,6 +22,15 @@ const contentPrev = contentContainer?.querySelector(".prev-button");
 const contentNext = contentContainer?.querySelector(".next-button");
 const contentDots = contentContainer?.querySelectorAll(".dot");
 
+// slider impact YMP3
+const impactContainer = document.querySelector(".impact-image-slider");
+
+const impactImages = impactContainer?.querySelectorAll("img");
+const impactSlides = impactContainer?.querySelector(".slide");
+const impactPrev = impactContainer?.querySelector(".prev-button");
+const impactNext = impactContainer?.querySelector(".next-button");
+const impactDots = impactContainer?.querySelectorAll(".dot");
+
 const searchToggle = document.querySelector(".search-toggle");
 const searchBox = document.querySelector(".search-box");
 
@@ -121,6 +130,18 @@ function setupSlider(container) {
         });
     }
 
+    container.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") {
+        event.preventDefault();
+        showSlide(currentSlide + 1);
+    }
+
+    if (event.key === "ArrowLeft") {
+        event.preventDefault()
+        showSlide(currentSlide - 1);
+    }
+});
+
     // Navigasi Dots
     dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
@@ -173,6 +194,9 @@ setupSlider(document.querySelector(".visi-image-slider"));
 
 // Jalankan Slider About YMP3
 setupSlider(document.querySelector(".content-image-slider"));
+
+// Jalankan Slider Impact
+setupSlider(document.querySelector(".impact-image-slider"))
 
 // Search Box
 if (searchToggle && searchBox && searchContainer && searchClose) {
