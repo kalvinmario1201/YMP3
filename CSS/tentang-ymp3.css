@@ -440,6 +440,96 @@ a {
 
 }
 
+/* =====================================
+   VISION & MISSION
+===================================== */
+
+.about-vision-mission {
+    padding-left: 50px;
+    background-color: #071A33;
+
+    display: flex;
+
+    flex-direction: row;
+
+    gap: 35px;
+
+    align-items: center;
+    
+    width: 100%;
+    max-width: 1370px;
+
+    height: 100%;
+    max-height: 500px;
+
+}
+
+.vision-card {
+
+    display: flex;
+
+    width: 1200px;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: #F0EBE2;
+
+    padding: 10px 50px;
+
+    border-radius: 12px;
+
+    padding: 50px 0;
+
+}
+
+
+.vision-icon {
+
+    min-width: 45px;
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--navy);
+
+    color: var(--gold);
+
+    border-radius: 50%;
+
+    font-size: 18px;
+
+}
+
+
+.vision-card h3 {
+
+    font-family: var(--font-heading);
+
+    font-size: 20px;
+
+    color: var(--navy);
+
+    margin: 0 0 5px;
+
+}
+
+
+.vision-card p {
+    line-height: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    margin: 0;
+
+}
 
 /* =====================================
    ABOUT CONTENT
@@ -615,133 +705,6 @@ a {
         visibility: visible;
     }
 
-    /* .prev-button {
-        left: 15px;
-    }
-
-    .next-button {
-        right: 15px;
-    }
-
-
-    .slider-dots {
-        position: absolute;
-        bottom: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 7px;
-    }
-
-    .dot {
-        width: 8px;
-        height: 8px;
-        background-color: rgba(255, 255, 255, 0.4);
-        border-radius: 50%;
-    }
-
-    .dot.active {
-        background-color: var(--cream);
-    } */
-
-
-/* =====================================
-   VISION & MISSION
-===================================== */
-
-.about-vision-mission {
-    padding-left: 50px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-
-}
-
-.visi-misi {
-    display: inline-block;
-
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-    color: var(--gold);
-
-    font-size: 19px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 9px;
-
-}
-
-.vision-card {
-
-    display: flex;
-
-    width: 300px;
-
-    align-items: center;
-
-    gap: 20px;
-
-    background: #F0EBE2;
-
-    padding: 20px;
-
-    border-radius: 12px;
-
-}
-
-
-.vision-icon {
-
-    min-width: 45px;
-
-    width: 45px;
-
-    height: 45px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: var(--navy);
-
-    color: var(--gold);
-
-    border-radius: 50%;
-
-    font-size: 18px;
-
-}
-
-
-.vision-card h3 {
-
-    font-family: var(--font-heading);
-
-    font-size: 20px;
-
-    color: var(--navy);
-
-    margin: 0 0 5px;
-
-}
-
-
-.vision-card p {
-    line-height: 20px;
-    padding-bottom: 20px;
-    font-size: 14px;
-    margin: 0;
-
-}
-
 
 /* =====================================
    OUR VALUES
@@ -887,12 +850,16 @@ a {
 
     align-items: center;
 
-    gap: 35px;
+    gap: 50px;
 
     padding: 55px 9%;
 
     background: var(--cream);
 
+}
+
+.impact-description {
+    padding-left: 8px;
 }
 
 .impact-statistics {
