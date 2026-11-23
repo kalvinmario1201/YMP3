@@ -445,9 +445,8 @@ a {
 ===================================== */
 
 .about-vision-mission {
-    padding-left: 50px;
-    background-color: #071A33;
-
+    position: relative;
+    
     display: flex;
 
     flex-direction: row;
@@ -457,41 +456,57 @@ a {
     align-items: center;
     
     width: 100%;
-    max-width: 1370px;
+    max-width: 1200px;
 
-    height: 100%;
-    max-height: 500px;
+    margin: 0 auto;
+    padding: 50px 30px;
 
+    box-sizing: border-box;
+}
+
+.about-vision-mission::after {
+    content: "";
+    position: absolute;
+
+    width: 2px;
+    height: 70%;
+
+    background-color: #D4A84F;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .vision-card {
 
     display: flex;
 
-    width: 1200px;
-
     align-items: center;
+    
 
-    gap: 20px;
+    flex: 1;
+    max-width: 550px;
+    height: 200px;
 
-    background: #F0EBE2;
+    gap: 1.3rem;
 
-    padding: 10px 50px;
+    padding: 10px 30px;
 
     border-radius: 12px;
 
-    padding: 50px 0;
+    box-sizing: border-box;
 
 }
 
 
 .vision-icon {
 
-    min-width: 45px;
+    min-width: 90px;
 
-    width: 45px;
+    width: 90px;
 
-    height: 45px;
+    height: 90px;
 
     display: flex;
 
@@ -505,20 +520,27 @@ a {
 
     border-radius: 50%;
 
-    font-size: 18px;
+    font-size: 70px;
 
 }
 
 
-.vision-card h3 {
+.vision-card h2 {
 
     font-family: var(--font-heading);
 
-    font-size: 20px;
+    font-size: 32px;
 
     color: var(--navy);
 
     margin: 0 0 5px;
+
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
 
 }
 
@@ -526,8 +548,21 @@ a {
 .vision-card p {
     line-height: 20px;
     padding-bottom: 20px;
-    font-size: 14px;
+    font-size: 18px;
     margin: 0;
+    height: 60px;
+}
+
+.vision-card h2::before {
+    content: "";
+    border: solid gold;
+}
+
+.vision-card h2::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: #D4A84F;
 
 }
 
@@ -536,31 +571,56 @@ a {
 ===================================== */
 
 .about-content {
-
+    background-image: url('../asset/img/background homepage/Misty\ Mountain\ Village at Sunrise.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
     display: grid;
 
     width: 100%;
-    max-width: 1200px;
+    max-width: 1270px;
 
-    grid-template-columns: 1fr 1.5fr 1.2fr;
+    grid-template-columns: 1.5fr 1.5fr;
 
     align-items: center;
 
-    gap: 35px;
+    gap: 100px;
 
-    padding: 60px 5.5%;
+    padding: 20px 8%;
 
-    background: var(--cream);
+}
 
+.about-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7, 26, 51, 0.9);
+    z-index: 0;
 }
 
 .about-introduction {
-    width: 300px;
-    background-color: #F0EBE2;
+    position: relative;
+    max-width: 700px;
+    color: #D4A84F;
     border-radius: 12px;
 }
 
-.about-introduction h2,
+.about-introduction h2 {
+    font-family: var(--font-heading);
+
+    font-size: 34px;
+
+    line-height: 1.1;
+
+    color: var(--gold-light);
+
+    margin: 0 0 18px;
+}
+
+
 .impact-description h2 {
 
     font-family: var(--font-heading);
@@ -576,57 +636,47 @@ a {
 }
 
 
-.about-introduction p, .impact-description p {
+.about-introduction p.description {
+    line-height: 1.5;
+    font-size: 21px;
+    padding-bottom: 20px;
+    color: var(--white);
+    margin-bottom: 22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+.about-introduction p.description.expanded {
+    display: block;
+    overflow: visible;
+}
+
+.read-more {
+    background: none;
+    border: none;
+    color: var(--cream);
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+    color: #D4A84F;
+}
+
+.impact-description p {
     line-height: 1.5;
     font-size: 14px;
     padding-bottom: 20px;
     color: var(--text-dark);
     margin-bottom: 22px;
-}
-
-
-/* .impact-description p {
-
-    font-size: 13px;
-
-    line-height: 1.9;
-
-    color: var(--text-dark);
-
-    margin-bottom: 22px;
-
-} */
-
-
-.navy-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    background: var(--navy);
-
-    color: white;
-
-    padding: 13px 22px;
-
-    border-radius: 30px;
-
-    font-size: 15px;
-
-    transition: 0.3s;
-
-}
-
-
-.navy-button:hover {
-
-    background: var(--navy-light);
-
-    transform: translateY(-3px);
-
 }
 
 

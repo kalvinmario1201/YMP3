@@ -37,6 +37,8 @@ const searchBox = document.querySelector(".search-box");
 const searchContainer = document.querySelector(".search-container");
 const searchClose = document.querySelector(".search-close");
 
+const readMore = document.querySelector(".read-more");
+
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -197,6 +199,19 @@ setupSlider(document.querySelector(".content-image-slider"));
 
 // Jalankan Slider Impact
 setupSlider(document.querySelector(".impact-image-slider"))
+
+function toggleText(id, button) {
+    const text = document.getElementById(id);
+
+    if (!text) return;
+    text.classList.toggle("expanded");
+
+    if (text.classList.contains("expanded")) {
+        button.textContent = "Baca Lebih Sedikit";
+    } else {
+        button.textContent = "Lihat Selengkapnya..."
+    }
+}
 
 // Search Box
 if (searchToggle && searchBox && searchContainer && searchClose) {
