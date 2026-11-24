@@ -840,7 +840,7 @@
 
     .join-us-section .join-us-icons {
         display: flex;
-        gap: 270px;
+        gap: 170px;
         justify-content: center;
         flex-wrap: wrap;
         padding-bottom: 50px;
@@ -1059,155 +1059,885 @@
 
     
 
-    @media (max-width:1080px){
-        .navbar-container{
-            flex-wrap: wrap;
-            justify-content: space-between;
+   /* ========================================
+   RESPONSIVE TABLET
+   Ukuran layar 769px - 1080px
+======================================== */
 
-            padding: 15px 20px;
+@media screen and (min-width: 769px) and (max-width: 1080px) {
 
-            gap: 0;
-        }
-
-        .menu-toggle{
-            display: block;
-        }
-
-        .right-navbar{
-            display:none;
-            width:100%;
-            background:#cfe6ee;
-            margin-left: 30px;
-        }
-
-        .right-navbar.active{
-            display:block;
-        }
-
-        .navbar-container .right-navbar ul{
-            width:100%;
-            margin:0;
-            padding:0;
-
-            display:flex;
-            flex-direction:column;
-
-            justify-content:center;
-            align-items:center;
-
-            gap:1.5rem;
-        }
-
-        .navbar-container .right-navbar ul li{
-            width:100%;
-            text-align:center;
-            padding:15px 0;
-        }
-
-        .navbar-container .right-navbar ul li a{
-            display:block;
-            color:black;
-            padding:10px;
-        }
-
-        .hero{
-            min-height: 60vh;
-
-            padding: 110px 20px 40px;
-        }
-
-        .hero-text{
-            padding: 0 10px;
-        }
-
-        .hero-text h3{
-            line-height: 1.5;
-        }
-
-        .visi-container{
-            flex-direction: column;
-            text-align: center;
-            gap: 25px;
-            padding: 50px 20px;
-        }
-
-        .visi-title{
-            font-size: 2rem;
-        }
-
-        .visi-content{
-            font-size: 18px;
-        }
-
-        .aktivitas-container{
-            gap: 35px;
-            padding: 50px 20px;
-        }
-
-        .join-us-section{
-            gap: 50px;
-            padding: 60px 20px;
-        }
-
-        .join-us-title{
-            font-size: 2rem;
-            text-align: center;
-            white-space: normal;
-        }
-
-        .join-us-icons{
-            flex-direction: column;
-            align-items: center;
-            gap: 35px;
-        }
-
-        .container-aktivitas-terkini{
-            padding: 40px 15px;
-        }
-
-        .box-preview{
-            max-width: 100%;
-        }
-
-        .footer{
-            text-align: center;
-        }
-
-        .footer-container{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 40px;
-            grid-template-columns: 1fr;
-        }
-
-        .footer-logo{
-            display: block;
-            margin: 0 auto 15px;
-        }
-
-        .footer-col{
-            max-width: 100%;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .footer-col-2{
-            max-width: 100%;
-            text-align: center;
-            align-items: center;
-        }
-
-        .social-link{
-            width: 100%;
-            text-align: center;
-            align-items: center;
-            margin: 75px 0 75px 0;
-        }
-
-        .footer p{
-            font-size: 16px;
-        }
+    /* GLOBAL */
+    * {
+        box-sizing: border-box;
     }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar-container {
+        padding: 12px 25px;
+    }
+
+    .left-navbar {
+        margin-left: 0;
+    }
+
+    .left-navbar img {
+        width: 65px;
+    }
+
+    .right-navbar {
+        margin-right: 0;
+    }
+
+    .right-navbar ul {
+        gap: 18px;
+    }
+
+    .right-navbar a {
+        font-size: 15px;
+    }
+
+    .support {
+        min-width: 105px;
+    }
+
+    .support a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 500px;
+        padding: 110px 30px 50px;
+    }
+
+    .hero-text {
+        padding: 0 20px;
+    }
+
+    .hero-text .head {
+        font-size: 15px;
+        padding-left: 0;
+    }
+
+    .hero-text h1 {
+        width: 85%;
+        font-size: clamp(2.8rem, 5vw, 4rem);
+        padding-left: 0;
+    }
+
+    .hero-text .foot {
+        width: 80%;
+        font-size: 15px;
+        padding-left: 0;
+    }
+
+    /* VISI */
+    .visi-container {
+        height: auto;
+        max-height: none;
+        padding: 55px 35px;
+        gap: 30px;
+        flex-wrap: nowrap;
+    }
+
+    .visi-text,
+    .visi-image-slider {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .visi-title {
+        font-size: 28px;
+    }
+
+    .visi-content {
+        font-size: 19px;
+        word-spacing: 1px;
+    }
+
+    /* SLIDER */
+    .visi-image-slider,
+    .content-image-slider,
+    .impact-image-slider {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .slide img {
+        flex: 0 0 100%;
+        width: 100%;
+        min-width: 100%;
+        max-width: none;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    /* PROGRAM */
+    .program-title {
+        padding-left: 35px;
+    }
+
+    .aktivitas-container h1 {
+        font-size: 40px;
+    }
+
+    .card-container {
+        padding: 0 35px 40px;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .card-container .content {
+        width: calc(50% - 15px);
+        max-width: 400px;
+    }
+
+    .card-container img {
+        width: 65px;
+        height: 65px;
+        padding: 0;
+        margin: 25px auto 10px;
+    }
+
+    .card-container h2 {
+        width: auto;
+        height: auto;
+        padding: 10px 20px;
+        font-size: 21px;
+        text-align: center;
+    }
+
+    .card-container p {
+        height: auto;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    /* TESTIMONY */
+    .testimony {
+        height: auto;
+        padding: 35px;
+        gap: 25px;
+    }
+
+    .testimony-image {
+        width: 45%;
+        min-width: 0;
+    }
+
+    .testimony-image img {
+        width: 100%;
+        height: 350px;
+        padding-left: 0;
+        object-fit: cover;
+    }
+
+    .testimony-content {
+        width: 55%;
+        min-width: 0;
+    }
+
+    .testimony-content small {
+        font-size: 22px;
+        padding-bottom: 15px;
+    }
+
+    .testimony-content h2 {
+        width: 100%;
+        font-size: 35px;
+    }
+
+    .testimony-content p {
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.7;
+        padding-bottom: 25px;
+    }
+
+    .testimony-content a {
+        display: inline-block;
+        width: auto;
+        margin-left: 0;
+        font-size: 15px;
+    }
+
+    /* BERITA */
+    .container-aktivitas-terkini {
+        padding: 35px;
+        gap: 20px;
+    }
+
+    .box-preview {
+        width: calc(50% - 15px);
+        max-width: none;
+    }
+
+    /* BERGABUNG */
+    .join-us-section {
+        height: auto;
+        padding: 65px 30px 90px;
+    }
+
+    .join-us-icons {
+        gap: 70px;
+    }
+
+    /* QUOTE */
+    .quote {
+        height: 350px;
+        padding: 30px;
+    }
+
+    .quote img {
+        width: 150px;
+        max-width: 35%;
+    }
+
+    .quote p {
+        width: 80%;
+        font-size: 21px;
+        line-height: 1.6;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 40px 35px 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px;
+    }
+
+    .footer-col-2 {
+        padding-left: 0;
+    }
+
+    .social-icons {
+        gap: 35px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE MOBILE
+   Ukuran layar maksimal 768px
+======================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* GLOBAL */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 16px;
+        gap: 10px;
+    }
+
+    .left-navbar {
+        margin: 0;
+    }
+
+    .left-navbar img {
+        width: 55px;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 2;
+        font-size: 27px;
+        color: white;
+    }
+
+    .right-navbar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 15px 20px;
+        background: #0B2A4A;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    .right-navbar.active {
+        display: block;
+    }
+
+    .right-navbar ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+    }
+
+    .right-navbar ul li {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .right-navbar ul li a {
+        display: block;
+        padding: 14px 10px;
+        color: white;
+        font-size: 16px;
+    }
+
+    .right-navbar ul li a::after {
+        display: none;
+    }
+
+    .search-container {
+        order: 3;
+        width: 35px;
+        height: 35px;
+        flex: 0 0 35px;
+    }
+
+    .search-toggle {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .search-box {
+        top: 50%;
+        right: 0;
+        max-width: calc(100vw - 25px);
+    }
+
+    .search-box input {
+        width: 110px;
+        min-width: 0;
+    }
+
+    .support {
+        order: 4;
+        min-width: auto;
+        min-height: 35px;
+        margin: 0;
+    }
+
+    .support a {
+        padding: 8px 12px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 550px;
+        padding: 120px 20px 45px;
+        background-position: center;
+    }
+
+    .hero-text {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .hero-text .head {
+        padding: 0;
+        font-size: 12px;
+        line-height: 1.6;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+
+    .hero-text h1 {
+        width: 100%;
+        padding: 15px 0;
+        margin: 15px 0;
+        font-size: clamp(2.2rem, 8vw, 3.2rem);
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .hero-text .foot {
+        width: 100%;
+        padding: 15px 0 0;
+        font-size: 13px;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    /* VISI */
+    .visi-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+        padding: 45px 22px;
+        gap: 25px;
+    }
+
+    .visi-text {
+        width: 100%;
+        padding: 0;
+    }
+
+    .visi-title {
+        font-size: 26px;
+        text-align: center;
+        margin-bottom: 18px;
+    }
+
+    .visi-content {
+        width: 100%;
+        max-width: none;
+        font-size: 16px;
+        line-height: 1.8;
+        word-spacing: 0;
+        text-align: justify;
+    }
+
+    /* SLIDER */
+    .visi-image-slider,
+    .content-image-slider,
+    .impact-image-slider {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        flex: none;
+    }
+
+    .slide {
+        display: flex;
+    }
+
+    .slide img {
+        flex: 0 0 100%;
+        width: 100%;
+        min-width: 100%;
+        max-width: none;
+        height: 260px;
+        object-fit: cover;
+    }
+
+    .prev-button,
+    .next-button {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .prev-button {
+        left: 8px;
+    }
+
+    .next-button {
+        right: 8px;
+    }
+
+    .slider-dots {
+        bottom: 10px;
+    }
+
+    /* PROGRAM */
+    .aktivitas-container {
+        padding: 35px 20px;
+        gap: 20px;
+    }
+
+    .program-title {
+        padding: 0;
+        text-align: center;
+    }
+
+    .aktivitas-container h4 {
+        font-size: 16px;
+    }
+
+    .aktivitas-container h1 {
+        font-size: 32px;
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        padding: 0 20px 40px;
+        gap: 22px;
+    }
+
+    .card-container .content {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .card-container img {
+        display: block;
+        width: 65px;
+        height: 65px;
+        padding: 0;
+        margin: 25px auto 10px;
+    }
+
+    .card-container h2 {
+        width: auto;
+        height: auto;
+        padding: 10px 20px;
+        font-size: 21px;
+        text-align: center;
+    }
+
+    .card-container p {
+        width: auto;
+        height: auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    /* TESTIMONY */
+    .testimony {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 25px 20px 35px;
+        gap: 25px;
+        border-radius: 0;
+    }
+
+    .testimony-image {
+        width: 100%;
+    }
+
+    .testimony-image img {
+        width: 100%;
+        height: 260px;
+        padding: 0;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .testimony-content {
+        width: 100%;
+    }
+
+    .testimony-content small {
+        display: block;
+        font-size: 20px;
+        line-height: 1.5;
+        padding-bottom: 10px;
+    }
+
+    .testimony-content h2 {
+        width: 100%;
+        font-size: 30px;
+        line-height: 1.3;
+        padding-bottom: 15px;
+    }
+
+    .testimony-content p {
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.7;
+        padding-bottom: 25px;
+    }
+
+    .testimony-content a {
+        display: inline-block;
+        width: auto;
+        margin: 0;
+        padding: 12px 16px;
+        font-size: 15px;
+    }
+
+    /* BERITA */
+    .info-terkini {
+        padding: 35px 15px;
+    }
+
+    .info-terkini h2 {
+        font-size: 29px;
+    }
+
+    .container-aktivitas-terkini {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 30px 20px 45px;
+        gap: 25px;
+    }
+
+    .box-preview {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .box-preview p {
+        height: auto;
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+
+    .box-preview-judul {
+        height: auto;
+        line-height: 1.5;
+    }
+
+    .box-preview-credit {
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    /* BERGABUNG */
+    .join-us-section {
+        height: auto;
+        padding: 50px 20px 75px;
+        gap: 35px;
+    }
+
+    .join-us-title {
+        font-size: 27px;
+        text-align: center;
+        line-height: 1.4;
+        padding-bottom: 15px;
+    }
+
+    .join-us-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 65px;
+        padding-bottom: 20px;
+    }
+
+    .join-us-section .join-card {
+        width: 110px;
+        height: 110px;
+    }
+
+    .join-us-section .join-caption {
+        bottom: -40px;
+        font-size: 14px;
+        white-space: normal;
+        width: 150px;
+    }
+
+    /* QUOTE */
+    .quote {
+        height: auto;
+        min-height: 320px;
+        padding: 35px 20px;
+    }
+
+    .quote img {
+        width: 130px;
+        max-width: 40%;
+        padding: 10px 0;
+    }
+
+    .quote p {
+        width: 100%;
+        font-size: 17px;
+        line-height: 1.7;
+        padding: 5px 0;
+    }
+
+    .quote .chapter {
+        font-size: 15px;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 40px 22px 25px;
+        text-align: center;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+    }
+
+    .footer-col,
+    .footer-col-2 {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .footer-logo {
+        display: block;
+        width: 90px;
+        margin: 0 auto 15px;
+    }
+
+    .footer p {
+        font-size: 14px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .footer h4 {
+        font-size: 19px;
+    }
+
+    .social-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        gap: 15px;
+    }
+
+    .social-link .follow-us {
+        padding-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 35px;
+    }
+
+    .social-icons .social-card {
+        width: 35px;
+        height: 35px;
+        padding: 0;
+    }
+
+    .social-icons .social-card img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .social-icons .social-caption {
+        display: none;
+    }
+
+    /* BACK TO TOP */
+    #backToTop {
+        width: 43px;
+        height: 43px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 25px;
+    }
+}
+
+/* ========================================
+   SMALL MOBILE
+   Ukuran layar maksimal 480px
+======================================== */
+
+@media screen and (max-width: 480px) {
+
+    .navbar-container {
+        padding: 9px 12px;
+        gap: 7px;
+    }
+
+    .left-navbar img {
+        width: 45px;
+    }
+
+    .menu-toggle {
+        font-size: 24px;
+    }
+
+    .support a {
+        font-size: 11px;
+        padding: 7px 9px;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 110px 15px 35px;
+    }
+
+    .hero-text .head {
+        font-size: 10px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text .foot {
+        font-size: 12px;
+    }
+
+    .visi-container {
+        padding: 35px 17px;
+    }
+
+    .visi-title {
+        font-size: 23px;
+    }
+
+    .visi-content {
+        font-size: 15px;
+    }
+
+    .slide img {
+        height: 220px;
+    }
+
+    .aktivitas-container h1 {
+        font-size: 28px;
+    }
+
+    .card-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .card-container h2 {
+        font-size: 19px;
+    }
+
+    .testimony-content h2 {
+        font-size: 26px;
+    }
+
+    .info-terkini h2 {
+        font-size: 25px;
+    }
+
+    .join-us-title {
+        font-size: 23px;
+    }
+
+    .quote p {
+        font-size: 15px;
+    }
+
+    .footer {
+        padding: 35px 15px 20px;
+    }
+
+    .search-box input {
+        width: 90px;
+    }
+}
