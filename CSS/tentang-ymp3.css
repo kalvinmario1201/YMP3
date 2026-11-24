@@ -579,15 +579,18 @@ a {
     display: grid;
 
     width: 100%;
-    max-width: 1270px;
+    max-width: 1600px;
 
-    grid-template-columns: 1.5fr 1.5fr;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.3fr);
 
     align-items: center;
 
-    gap: 100px;
+    gap: clamp(80px, 5vw, 100px);
 
-    padding: 20px 8%;
+    padding: 60px clamp(20px, 5vw, 80px);
+    margin: 0 auto;
+
+    box-sizing: border-box;
 
 }
 
@@ -599,10 +602,18 @@ a {
     height: 100%;
     background-color: rgba(7, 26, 51, 0.9);
     z-index: 0;
+    pointer-events: none;
+}
+
+.about-content > * {
+    position: relative;
+    z-index: 1;
 }
 
 .about-introduction {
     position: relative;
+    width: 100%;
+    min-width: 0;
     max-width: 700px;
     color: #D4A84F;
     border-radius: 12px;
@@ -679,21 +690,6 @@ a {
     margin-bottom: 22px;
 }
 
-
-.about-image img {
-
-    width: 100%;
-
-    height: 230px;
-
-    object-fit: cover;
-
-    border-radius: 12px;
-
-    box-shadow: 0 10px 30px rgba(7, 26, 51, 0.12);
-
-}
-
 .section-label::before, .section-label::after {
     content: "";
     flex: 1;
@@ -704,12 +700,12 @@ a {
 
 /* slider */
     .content-image-slider {
-        flex: 1;
         position: relative ;
         border-radius: 12px;
         overflow: hidden;
-        width: 110%;
+        width: 100%;
         max-width: 500px;
+        min-width: 0;
 
         /* fitur swipe untuk touchscreen */
         touch-action: pan-y;
@@ -723,9 +719,10 @@ a {
     }
 
     .content-image-slider .slide img {
+        flex: 0 0 100%;
         width: 100%;
-        min-width: 100%;
-        max-width: 350px;
+        min-width: 0;
+        max-width: 500px;
         height: 300px;
         object-fit: cover;
         display: block;
@@ -755,6 +752,38 @@ a {
         visibility: visible;
     }
 
+
+.peta-pelayanan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 1200px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.peta-pelayanan h2 {
+    display: flex;
+    font-size: 34px;
+    padding: 20px 0;
+}
+
+.peta-jangkauan {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.peta-jangkauan img {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+}
 
 /* =====================================
    OUR VALUES
@@ -1304,7 +1333,8 @@ a {
    MOBILE RESPONSIVE
 ===================================== */
 
-@media (max-width: 768px) {
+/* untuk tablet dan laptop/monitor kecil */
+@media (max-width: 900px) {
 
     .navbar-container {
 
@@ -1409,9 +1439,17 @@ a {
     .about-content {
 
         grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 50px 30px;
 
-        padding: 45px 7%;
+    }
 
+    .about-introduction {
+        max-width: 100%;
+    }
+
+    .content-image-slider .slide img {
+        height: 350px;
     }
 
     .about-vision-mission {
@@ -1484,13 +1522,29 @@ a {
 
 @media (max-width: 480px) {
 
+    .about-content {
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .about-introduction {
+        font-size: 28px;
+    }
+
+    .about-introduction p.description {
+        font-size: 16px;
+    }
+
+    .content-image-slider .slide img {
+        height: 250px;
+    }
+    
     .about-hero-content h1 {
 
         font-size: 35px;
 
     }
 
-    .about-introduction h2,
     .impact-description h2,
     .values-introduction h2 {
 

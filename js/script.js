@@ -81,8 +81,8 @@ menuToggle.addEventListener("click", () => {
 });
 
 // FUNGSI SLIDER
+// FUNGSI SLIDER
 function setupSlider(container) {
-
     if (!container) return;
 
     const images = container.querySelectorAll("img");
@@ -91,11 +91,25 @@ function setupSlider(container) {
     const nextButton = container.querySelector(".next-button");
     const dots = container.querySelectorAll(".dot");
 
-    let currentSlide = 0;
-
     if (!slides || images.length === 0) return;
 
-    // Menampilkan gambar
+    let currentSlide = 0;
+
+    let autoSlide;
+    let resumeTimeout;
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            pauseAutoSlide();
+            clearTimeout(resumeTimeout);
+        } else {
+            if (!isHovered) {
+                startAutoSlide();
+            }
+        }
+    });
+
+    // MENAMPILKAN GAMBAR
     function showSlide(index) {
 
         if (index >= images.length) {
@@ -118,46 +132,102 @@ function setupSlider(container) {
         }
     }
 
-    // Tombol Next
-    if (nextButton) {
-        nextButton.addEventListener("click", () => {
-            showSlide(currentSlide + 1);
-        });
-    }
-
-    // Tombol Previous
-    if (prevButton) {
-        prevButton.addEventListener("click", () => {
-            showSlide(currentSlide - 1);
-        });
-    }
-
-    container.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") {
-        event.preventDefault();
+    // TOMBOL NEXT
+    function nextSlide() {
         showSlide(currentSlide + 1);
     }
 
-    if (event.key === "ArrowLeft") {
-        event.preventDefault()
+    // TOMBOL PREVIOUS
+    function prevSlide() {
         showSlide(currentSlide - 1);
     }
-});
 
-    // Navigasi Dots
+    // AUTOPLAY CONTROL
+    function startAutoSlide() {
+
+        clearInterval(autoSlide);
+
+        if (images.length <= 1) return;
+
+        autoSlide = setInterval(() => {
+            nextSlide();
+        }, 5000);
+    }
+
+    function pauseAutoSlide() {
+        clearInterval(autoSlide);
+    }
+
+    function resumeAutoSlide() {
+
+        clearTimeout(resumeTimeout);
+
+        if (images.length <= 1) return;
+
+        resumeTimeout = setTimeout(() => {
+            startAutoSlide();
+        }, 3000);
+    }
+
+    // MENGHENTIKAN AUTOPLAY KETIKA ADA INTERAKSI
+    function handleInteraction() {
+        pauseAutoSlide();
+        resumeAutoSlide();
+    }
+
+    // TOMBOL NEXT
+    if (nextButton) {
+        nextButton.addEventListener("click", () => {
+            nextSlide();
+            handleInteraction();
+        });
+    }
+
+    // TOMBOL PREVIOUS
+    if (prevButton) {
+        prevButton.addEventListener("click", () => {
+            prevSlide();
+            handleInteraction();
+        });
+    }
+
+    // NAVIGASI KEYBOARD
+    container.addEventListener("keydown", event => {
+
+        if (event.key === "ArrowRight") {
+            event.preventDefault();
+            nextSlide();
+            handleInteraction();
+        }
+
+        if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            prevSlide();
+            handleInteraction();
+        }
+    });
+
+    // NAVIGASI DOTS
     dots.forEach((dot, index) => {
+
         dot.addEventListener("click", () => {
             showSlide(index);
+            handleInteraction();
         });
     });
 
-    // Fitur Swipe
+    // FITUR SWIPE
     let touchStartX = 0;
     let touchStartY = 0;
 
     container.addEventListener("touchstart", event => {
+
         touchStartX = event.changedTouches[0].clientX;
         touchStartY = event.changedTouches[0].clientY;
+
+        pauseAutoSlide();
+        clearTimeout(resumeTimeout);
+
     }, { passive: true });
 
     container.addEventListener("touchend", event => {
@@ -174,31 +244,44 @@ function setupSlider(container) {
         ) {
 
             if (differenceX > 0) {
-                showSlide(currentSlide + 1);
+                nextSlide();
             } else {
-                showSlide(currentSlide - 1);
+                prevSlide();
             }
         }
 
+        resumeAutoSlide();
+
     }, { passive: true });
 
-    // Slide Otomatis
-    if (images.length > 1) {
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-    }
+    // PAUSE KETIKA KURSOR BERADA DI ATAS SLIDER
+    container.addEventListener("mouseenter", () => {
+
+        pauseAutoSlide();
+        clearTimeout(resumeTimeout);
+
+    });
+
+    // AUTOPLAY AKTIF KEMBALI KETIKA KURSOR KELUAR
+    container.addEventListener("mouseleave", () => {
+        startAutoSlide();
+    });
+
+    // INISIALISASI SLIDER
+    showSlide(0);
+    startAutoSlide();
 
 }
 
-// Jalankan Slider Beranda
+
+// JALANKAN SLIDER BERANDA
 setupSlider(document.querySelector(".visi-image-slider"));
 
-// Jalankan Slider About YMP3
+// JALANKAN SLIDER ABOUT YMP3
 setupSlider(document.querySelector(".content-image-slider"));
 
-// Jalankan Slider Impact
-setupSlider(document.querySelector(".impact-image-slider"))
+// JALANKAN SLIDER IMPACT
+setupSlider(document.querySelector(".impact-image-slider"));
 
 function toggleText(id, button) {
     const text = document.getElementById(id);
