@@ -1921,7 +1921,12 @@
     }
 
     .card-container h2 {
-        font-size: 19px;
+        font-size: 21px;
+    }
+
+    .card-container p {
+        font-size: 16px;
+        padding: 10px 18px;
     }
 
     .testimony-content h2 {
