@@ -1936,6 +1936,21 @@
         bottom: 15px;
         font-size: 25px;
     }
+
+        .lightbox-prev,
+    .lightbox-next {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
 }
 
 /* ========================================
