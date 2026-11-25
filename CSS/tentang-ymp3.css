@@ -1674,6 +1674,21 @@ a {
         grid-column: span 2;
     }
 
+    .lightbox-prev,
+    .lightbox-next {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
 }
 
 /* =====================================
