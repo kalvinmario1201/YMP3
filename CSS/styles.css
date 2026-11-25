@@ -1920,6 +1920,12 @@
         padding-right: 15px;
     }
 
+    .card-container .content {
+        width: 100%;
+        min-width: 0;
+        max-width: 900px;
+    }
+
     .card-container h2 {
         font-size: 19px;
     }
