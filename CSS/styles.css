@@ -1555,7 +1555,7 @@
 
     /* PROGRAM */
     .aktivitas-container {
-        padding: 35px 20px;
+        padding: 35px 12px;
         gap: 20px;
     }
 
@@ -1573,22 +1573,34 @@
     }
 
     .card-container {
-        gap: 6px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
         padding-left: 8px;
         padding-right: 8px;
+        width: 100%;
+        padding: 0 4px 30px;
+        margin: 0;
+        box-sizing: border-box;
     }
 
     .card-container .content {
         width: 100%;
         min-width: 0;
         max-width: none;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        
+        margin: 0;
         gap: 8px;
         border-radius: 10px;
     }
 
     .card-container img {
-        width: 40px;
-        height: 40px;
+        width: clamp(30px, 9vw, 50px);
+        height: clamp(30px, 9vw, 50px);
         padding: 0;
         margin: 15px auto 5px;
         object-fit: contain;
@@ -1598,19 +1610,20 @@
         width: 100%;
         height: auto;
         padding: 5px 4px;
-        font-size: 11px;
+        font-size: clamp(11px, 2.2vw, 16px);
         line-height: 1.3;
         text-align: center;
-        overflow-wrap: break-word;
+        overflow-wrap: anywhere;
     }
 
     .card-container p {
         width: 100%;
         height: auto;
-        padding: 5px 4px 12px 4px;
-        font-size: 10px;
+        padding: 5px 6px 12px;
+        font-size: clamp(10px, 1.8vw, 13px);
         line-height: 1.5;
         text-align: center;
+        overflow-wrap: anywhere;
     }
 
     /* TESTIMONY */
@@ -1915,13 +1928,10 @@
         font-size: 28px;
     }
 
-    .card-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding-left: 15px;
-        padding-right: 15px;
+    .aktivitas-container .card-container {
+        gap: 6px;
+        padding-left: 2px;
+        padding-right: 2px;
     }
 
     .card-container .content {
@@ -1931,7 +1941,13 @@
     }
 
     .card-container h2 {
-        font-size: 19px;
+        font-size: 10px;
+    }
+
+    .aktivitas-container .card-container p {
+        font-size: 9px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 
     .testimony-content h2 {
