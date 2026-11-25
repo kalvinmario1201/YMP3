@@ -39,6 +39,87 @@ const searchClose = document.querySelector(".search-close");
 
 const readMore = document.querySelector(".read-more");
 
+// image group
+const imageGroups = document.querySelectorAll(".visi-image-slider, .content-image-slider, .impact-image-slider");
+
+const lightbox = document.getElementById("imageLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+
+const closeLightbox = document.getElementById("lightboxClose");
+const prevLightbox = document.getElementById("lightboxPrev");
+const nextLightbox = document.getElementById("lightboxNext")
+
+let currentImageIndex = 0;
+let activeImage = [];
+
+function openLightbox(images, index) {
+    activeImage =images;
+    currentImageIndex= index;
+
+    showLightboxImage();
+
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function showLightboxImage() {
+    const image = activeImage[currentImageIndex];
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+
+    lightboxCaption.textContent = image.alt;
+}
+
+function closeImageLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+function nextImage() {
+    currentImageIndex  = (currentImageIndex + 1) % activeImage.length;
+
+    showLightboxImage();
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + activeImage.length) % activeImage.length;
+
+    showLightboxImage();
+}
+
+imageGroups.forEach((group) => {
+    const images = group.querySelectorAll("img");
+
+    images.forEach((img, index) => {
+        img.addEventListener("click", () => {
+            openLightbox(Array.from(images), index);
+        });
+    });
+});
+
+//  navigasi
+closeLightbox.addEventListener("click", closeImageLightbox);
+nextLightbox.addEventListener("click", nextImage);
+prevLightbox.addEventListener("click", prevImage);
+
+// klik area gelap untuk menutup gambar
+lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+        closeImageLightbox();
+    }
+});
+
+// tombol navigasi
+document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("active")) return;
+
+    if (event.key === "Escape") closeImageLightbox();
+    if (event.key === "ArrowRight") nextImage();
+    if (event.key === "ArrowLeft") prevImage();
+});
+
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
