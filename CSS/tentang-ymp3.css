@@ -1284,322 +1284,593 @@ a {
    TABLET RESPONSIVE
 ===================================== */
 
-@media (max-width: 1080px) {
+@media screen and (max-width: 1080px) {
 
+    /* ABOUT CONTENT */
     .about-content {
-
         grid-template-columns: 1fr 1fr;
-
+        gap: 40px;
     }
 
+    /* VISION & MISSION */
     .about-vision-mission {
-
-        grid-column: span 2;
-
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-
+        gap: 20px;
+        padding: 40px 20px;
     }
 
-    .about-vision-mission > .section-label {
-
-        grid-column: span 2;
-
+    .vision-card {
+        padding: 10px 15px;
     }
 
+    /* OUR VALUES */
     .our-values {
-
         grid-template-columns: 1fr;
-
+        gap: 25px;
     }
 
+    /* IMPACT */
     .impact-section {
-
         grid-template-columns: 1fr 1fr;
-
+        gap: 30px;
     }
 
     .impact-statistics {
-
         grid-column: span 2;
+    }
 
+    .impact-image-slider {
+        width: 100%;
+    }
+
+    .impact-image-slider .slide-item img {
+        width: 100%;
     }
 
 }
-
 
 /* =====================================
    MOBILE RESPONSIVE
 ===================================== */
 
-/* untuk tablet dan laptop/monitor kecil */
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
+
+    /* ================= NAVBAR ================= */
 
     .navbar-container {
-
-        padding: 12px 5%;
-
+        padding: 10px 5%;
     }
 
     .left-navbar img {
-
         width: 65px;
-
     }
 
     .menu-toggle {
-
         display: block;
-
         margin-left: auto;
-
     }
 
     .right-navbar {
-
         position: absolute;
-
         top: 100%;
-
         left: 0;
 
         width: 100%;
+        margin: 0;
+        flex: none;
 
         max-height: 0;
-
         overflow: hidden;
 
         background: var(--navy);
 
-        transition: max-height 0.4s ease;
+        box-sizing: border-box;
 
+        transition: max-height 0.4s ease;
     }
 
     .right-navbar.active {
-
         max-height: 400px;
-
+        overflow-y: auto;
     }
 
     .right-navbar ul {
-
+        display: flex;
         flex-direction: column;
-
         align-items: flex-start;
 
         padding: 25px 7%;
-
         gap: 25px;
-
     }
 
     .navbar-action {
-
         display: none;
-
     }
 
 
+    /* ================= HERO ================= */
+
     .about-hero {
-
-        min-height: 600px;
-
+        min-height: 550px;
         background-position: 65% center;
-
     }
 
     .about-hero-overlay {
-
         background: rgba(7, 26, 51, 0.78);
-
     }
 
     .about-hero-content {
+        width: 100%;
+        max-width: 100%;
 
         margin: 0;
+        padding: 100px 7% 110px;
 
-        padding: 100px 7% 120px;
-
+        box-sizing: border-box;
     }
 
     .about-hero-content h1 {
-
         font-size: 42px;
+    }
 
+    .about-hero-content p {
+        font-size: 14px;
     }
 
     .wave-divider {
-
         height: 65px;
-
     }
 
 
+    /* ================= VISION & MISSION ================= */
+
+    .about-vision-mission {
+        display: flex;
+        flex-direction: column;
+
+        align-items: stretch;
+
+        width: 100%;
+        gap: 20px;
+
+        padding: 40px 20px;
+    }
+
+    /* Hilangkan garis vertikal */
+    .about-vision-mission::after {
+        display: none;
+    }
+
+    .vision-card {
+        display: flex;
+        flex-direction: row;
+
+        align-items: flex-start;
+
+        width: 100%;
+        max-width: none;
+
+        height: auto;
+
+        gap: 15px;
+        padding: 15px;
+
+        box-sizing: border-box;
+    }
+
+    .vision-icon {
+        min-width: 65px;
+        width: 65px;
+        height: 65px;
+
+        font-size: 45px;
+    }
+
+    .vision-card h2 {
+        height: auto;
+
+        font-size: 28px;
+
+        justify-content: flex-start;
+
+        gap: 10px;
+
+        margin-bottom: 10px;
+    }
+
+    .vision-card h2::before {
+        display: none;
+    }
+
+    .vision-card p {
+        height: auto;
+
+        padding-bottom: 0;
+
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+
+    /* ================= ABOUT CONTENT ================= */
+
     .about-content {
-
         grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 50px 30px;
 
+        gap: 35px;
+
+        padding: 45px 25px;
     }
 
     .about-introduction {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-introduction h2 {
+        font-size: 30px;
+    }
+
+    .about-introduction p.description {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+
+    /* ================= CONTENT IMAGE SLIDER ================= */
+
+    .content-image-slider {
+        width: 100%;
         max-width: 100%;
     }
 
     .content-image-slider .slide img {
-        height: 350px;
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
     }
 
-    .about-vision-mission {
-
-        grid-column: auto;
-
-        display: flex;
-
+    /* Tombol tetap terlihat pada layar sentuh */
+    .content-image-slider .prev-button,
+    .content-image-slider .next-button {
+        opacity: 1;
+        visibility: visible;
     }
 
+    .content-image-slider .prev-button {
+        left: 10px;
+    }
+
+    .content-image-slider .next-button {
+        right: 10px;
+    }
+
+
+    /* ================= PETA PELAYANAN ================= */
+
+    .peta-pelayanan {
+        padding: 30px 20px;
+    }
+
+    .peta-pelayanan h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .peta-jangkauan img {
+        width: 100%;
+        height: auto;
+    }
+
+
+    /* ================= OUR VALUES ================= */
 
     .our-values {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
 
         padding: 45px 7%;
+    }
 
+    .values-introduction h2 {
+        font-size: 30px;
     }
 
     .values-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
-        grid-template-columns: 1fr 1fr;
-
-        row-gap: 30px;
-
+        gap: 20px 10px;
     }
 
     .value-item {
+        grid-column: auto !important;
 
         border-left: none;
+        border-right: none;
 
-        padding: 10px;
-
+        padding: 12px 8px;
     }
 
+    .value-item h3 {
+        font-size: 13px;
+    }
+
+    .value-item p {
+        font-size: 11px;
+    }
+
+
+    /* ================= IMPACT SECTION ================= */
 
     .impact-section {
-
         grid-template-columns: 1fr;
-
-        padding: 45px 7%;
-
-    }
-
-    .impact-statistics {
-
-        grid-column: auto;
-
-    }
-
-
-    .footer-main {
-
-        grid-template-columns: 1fr 1fr;
 
         gap: 30px;
 
+        padding: 45px 7%;
+    }
+
+    .impact-description {
+        padding-left: 0;
+    }
+
+    .impact-description h2 {
+        font-size: 30px;
+    }
+
+    .impact-statistics {
+        grid-column: auto;
+
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .impact-image-slider {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .impact-image-slider .slide-item {
+        height: 250px;
+    }
+
+    .impact-image-slider .slide-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .impact-image-slider .image-caption {
+        padding: 20px 12px 10px;
+    }
+
+    .impact-image-slider .image-caption p {
+        font-size: 14px;
+    }
+
+    /* Tombol slider untuk touchscreen */
+    .impact-image-slider .prev-button,
+    .impact-image-slider .next-button {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .impact-image-slider .prev-button {
+        left: 10px;
+    }
+
+    .impact-image-slider .next-button {
+        right: 10px;
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
 
     .footer-brand {
-
         grid-column: span 2;
-
     }
 
 }
-
 
 /* =====================================
    SMALL MOBILE
 ===================================== */
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
 
-    .about-content {
-        padding: 40px 20px;
-        gap: 30px;
+    /* ================= HERO ================= */
+
+    .about-hero {
+        min-height: 520px;
+        background-position: 65% center;
     }
 
-    .about-introduction {
-        font-size: 28px;
+    .about-hero-content {
+        padding: 90px 6% 100px;
+    }
+
+    .about-hero-content h1 {
+        font-size: 35px;
+        line-height: 1.15;
+    }
+
+    .about-hero-content p {
+        font-size: 13px;
+    }
+
+
+    /* ================= VISION & MISSION ================= */
+
+    .about-vision-mission {
+        padding: 35px 15px;
+        gap: 15px;
+    }
+
+    .vision-card {
+        gap: 12px;
+        padding: 12px 5px;
+    }
+
+    .vision-icon {
+        min-width: 55px;
+        width: 55px;
+        height: 55px;
+
+        font-size: 38px;
+    }
+
+    .vision-card h2 {
+        font-size: 24px;
+    }
+
+    .vision-card p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    /* ================= ABOUT CONTENT ================= */
+
+    .about-content {
+        padding: 35px 18px;
+        gap: 25px;
+    }
+
+    .about-introduction h2 {
+        font-size: 27px;
     }
 
     .about-introduction p.description {
-        font-size: 16px;
+        font-size: 14px;
+        line-height: 1.7;
     }
 
     .content-image-slider .slide img {
-        height: 250px;
-    }
-    
-    .about-hero-content h1 {
-
-        font-size: 35px;
-
+        height: 230px;
     }
 
-    .impact-description h2,
+
+    /* ================= PETA ================= */
+
+    .peta-pelayanan {
+        padding: 25px 15px;
+    }
+
+    .peta-pelayanan h2 {
+        font-size: 24px;
+    }
+
+
+    /* ================= OUR VALUES ================= */
+
+    .our-values {
+        padding: 35px 15px;
+    }
+
     .values-introduction h2 {
+        font-size: 27px;
+    }
 
-        font-size: 29px;
-
+    .values-introduction p {
+        font-size: 14px;
     }
 
     .values-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px 5px;
+    }
 
-        grid-template-columns: 1fr 1fr;
+    .value-item {
+        padding: 10px 5px;
+    }
 
+    .value-item i {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .value-item h3 {
+        font-size: 12px;
+    }
+
+    .value-item p {
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+
+    /* ================= IMPACT ================= */
+
+    .impact-section {
+        padding: 35px 15px;
+        gap: 25px;
+    }
+
+    .impact-description h2 {
+        font-size: 27px;
+    }
+
+    .impact-description p {
+        font-size: 13px;
     }
 
     .impact-statistics {
-
         grid-template-columns: 1fr;
+        gap: 10px;
 
-        gap: 15px;
-
+        padding: 20px 10px;
     }
 
     .stat-item {
-
         border-right: none;
 
         border-bottom: 1px solid rgba(201, 162, 77, 0.4);
 
+        padding: 15px 5px;
     }
 
     .stat-item:last-child {
-
         border-bottom: none;
+    }
 
+    .impact-image-slider .slide-item {
+        height: 210px;
+    }
+
+    .impact-image-slider .image-caption p {
+        font-size: 12px;
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    .about-footer {
+        padding: 35px 20px 0;
     }
 
     .footer-main {
-
         grid-template-columns: 1fr;
-
+        gap: 25px;
     }
 
     .footer-brand {
-
         grid-column: auto;
-
     }
 
     .footer-bottom {
-
         flex-direction: column;
 
-        gap: 15px;
+        gap: 10px;
 
         text-align: center;
+    }
 
+    .footer-bottom p {
+        font-size: 10px;
     }
 
 }
