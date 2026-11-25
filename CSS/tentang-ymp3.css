@@ -1724,11 +1724,11 @@ a {
     }
 
     .vision-card h2 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .vision-card p {
-        font-size: 13px;
+        font-size: 16px;
         line-height: 1.6;
     }
 
@@ -1745,7 +1745,7 @@ a {
     }
 
     .about-introduction p.description {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.7;
     }
 
@@ -1794,11 +1794,11 @@ a {
     }
 
     .value-item h3 {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .value-item p {
-        font-size: 10px;
+        font-size: 14px;
         line-height: 1.6;
     }
 
@@ -1815,7 +1815,7 @@ a {
     }
 
     .impact-description p {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .impact-statistics {
@@ -1842,7 +1842,7 @@ a {
     }
 
     .impact-image-slider .image-caption p {
-        font-size: 12px;
+        font-size: 16px;
     }
 
 
