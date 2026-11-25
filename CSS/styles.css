@@ -1760,20 +1760,20 @@
     }
 
     .quote img {
-        width: 130px;
-        max-width: 40%;
+        width: 150px;
+        max-width: 50%;
         padding: 10px 0;
     }
 
     .quote p {
         width: 100%;
-        font-size: 17px;
+        font-size: 18px;
         line-height: 1.7;
         padding: 5px 0;
     }
 
     .quote .chapter {
-        font-size: 15px;
+        font-size: 20px;
     }
 
     /* FOOTER */
@@ -1949,7 +1949,7 @@
     }
 
     .quote p {
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .footer {
