@@ -1141,7 +1141,8 @@
         position: fixed;
         inset: 0;
 
-        display: flex;
+        display: none;
+
         justify-content: center;
         align-items: center;
 
@@ -1154,6 +1155,11 @@
         overflow: hidden;
     }
 
+    /* LIGHTBOX AKTIF */
+    #imageLightbox.active {
+        display: flex;
+    }
+    
     #lightboxImage {
         display: block;
 
