@@ -1109,6 +1109,24 @@
         -webkit-user-drag: none;
     }
 
+    #lightboxCaption {
+        position: absolute;
+
+        bottom: 25px;
+        left: 50%;
+        
+        transform: translateX(-50%);
+
+        width: 80%;
+
+        text-align: center;
+        color: #D4A84F;
+
+        font-size: 16px;
+
+        z-index: 10002;
+    }
+
     /* TOMBOL CLOSE */
     .lightbox-close {
         position: absolute;
@@ -1992,6 +2010,12 @@
         object-fit: contain;
 
         margin: 0 auto;
+    }
+
+    #lightboxCaption {
+        bottom: 20px;
+        width: 85%;
+        font-size: 14px;
     }
 
     .lightbox-close {
