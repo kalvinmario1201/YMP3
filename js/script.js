@@ -31,6 +31,15 @@ const impactPrev = impactContainer?.querySelector(".prev-button");
 const impactNext = impactContainer?.querySelector(".next-button");
 const impactDots = impactContainer?.querySelectorAll(".dot");
 
+// slider onestory YMP3
+const onestoryContainer = document.querySelector(".onestory-image-slider");
+
+const onestoryImages = onestoryContainer?.querySelectorAll("img");
+const onestorySlides = onestoryContainer?.querySelector(".slide");
+const onestoryPrev = onestoryContainer?.querySelector(".prev-button");
+const onestoryNext = onestoryContainer?.querySelector(".next-button");
+const onestoryDots = onestoryContainer?.querySelectorAll(".dot");
+
 const searchToggle = document.querySelector(".search-toggle");
 const searchBox = document.querySelector(".search-box");
 
@@ -40,7 +49,7 @@ const searchClose = document.querySelector(".search-close");
 const readMore = document.querySelector(".read-more");
 
 // image group
-const imageGroups = document.querySelectorAll(".visi-image-slider, .content-image-slider, .impact-image-slider");
+const imageGroups = document.querySelectorAll(".visi-image-slider, .content-image-slider, .impact-image-slider, .onestory-image-slider");
 
 const lightbox = document.getElementById("imageLightbox");
 const lightboxImage = document.getElementById("lightboxImage");
@@ -224,10 +233,8 @@ function setupSlider(container) {
             pauseAutoSlide();
             clearTimeout(resumeTimeout);
         } else {
-            if (!isHovered) {
                 startAutoSlide();
             }
-        }
     });
 
     // MENAMPILKAN GAMBAR
@@ -403,6 +410,9 @@ setupSlider(document.querySelector(".content-image-slider"));
 
 // JALANKAN SLIDER IMPACT
 setupSlider(document.querySelector(".impact-image-slider"));
+
+// JALANKAN SLIDER ONESTORY
+setupSlider(document.querySelector(".onestory-image-slider"));
 
 function toggleText(id, button) {
     const text = document.getElementById(id);
