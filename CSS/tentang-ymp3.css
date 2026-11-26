@@ -1279,12 +1279,6 @@ a {
 
 }
 
-#lightboxImage {
-    touch-action: pan-y;
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
 
 /* =====================================
    TABLET RESPONSIVE
