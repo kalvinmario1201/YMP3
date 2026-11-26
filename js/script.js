@@ -89,6 +89,38 @@ function prevImage() {
     showLightboxImage();
 }
 
+let touchStartX = 0;
+let touchStartY = 0;
+
+const swipeArea = lightboxImage;
+
+swipeArea.addEventListener("touchstart", (event) => {
+
+    touchStartX = event.changedTouches[0].clientX;
+    touchStartY = event.changedTouches[0].clientY;
+
+}, {passive: true});
+
+swipeArea.addEventListener("touchend", (event) => {
+
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+
+    const differenceX = touchStartX - touchEndX;
+    const differenceY = touchStartY - touchEndY;
+
+    if (
+        Math.abs(differenceX) > 50 &&
+        Math.abs(differenceX) > Math.abs(differenceY)
+    ) {
+        if (differenceX > 0) {
+            nextImage();
+        } else {
+            prevImage();
+        }
+    }
+}, {passive: true });
+
 imageGroups.forEach((group) => {
     const images = group.querySelectorAll("img");
 
