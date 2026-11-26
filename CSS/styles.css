@@ -1159,7 +1159,7 @@
     #imageLightbox.active {
         display: flex;
     }
-    
+
     #lightboxImage {
         display: block;
 
@@ -1170,7 +1170,6 @@
         height: auto;
 
         object-fit: contain;
-
         margin: auto;
 
         touch-action: pan-y;
