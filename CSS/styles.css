@@ -1057,50 +1057,81 @@
         cursor: pointer;
     }
 
-    
-    /* Image lightbox */
-    .image-lightbox {
+    /* ================= IMAGE LIGHTBOX ================= */
+
+    #imageLightbox {
         display: none;
+
         position: fixed;
         inset: 0;
+
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 9999;
 
         justify-content: center;
         align-items: center;
-        padding: 50px;
+
+        background: rgba(0, 0, 0, 0.95);
+
+        z-index: 10000;
+        overflow: hidden;
+
+        padding: 0;
         box-sizing: border-box;
     }
 
-    .image-lightbox.active {
+    /* LIGHTBOX AKTIF */
+    #imageLightbox.active {
         display: flex;
     }
 
-    .image-lightbox img {
-        max-width: 90%;
+    /* GAMBAR */
+    #lightboxImage {
+        display: block;
+
+        width: auto;
+        height: auto;
+
+        max-width: 85vw;
         max-height: 85vh;
+
         object-fit: contain;
-        border-radius: 5px;
+
+        margin: 0;
+        padding: 0;
+
+        position: relative;
+        left: auto;
+        transform: none;
+
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-drag: none;
     }
 
-    /* close button */
+    /* TOMBOL CLOSE */
     .lightbox-close {
         position: absolute;
         top: 20px;
         right: 30px;
+
         background: none;
         border: none;
+
         color: white;
         font-size: 40px;
+
         cursor: pointer;
+
+        z-index: 10002;
     }
 
+    /* TOMBOL PREV DAN NEXT */
     .lightbox-prev,
     .lightbox-next {
         position: fixed;
         top: 50%;
+
         transform: translateY(-50%);
 
         width: 50px;
@@ -1120,8 +1151,8 @@
         cursor: pointer;
 
         z-index: 10001;
-        transition: background 0.3s ease;;
 
+        transition: background 0.3s ease;
     }
 
     .lightbox-prev {
@@ -1137,45 +1168,7 @@
         background: rgba(255, 255, 255, 0.35);
     }
 
-    #imageLightbox {
-        position: fixed;
-        inset: 0;
 
-        display: none;
-
-        justify-content: center;
-        align-items: center;
-
-        width: 100%;
-        height: 100%;
-
-        background: rgba(0, 0, 0, 0.95);
-
-        z-index: 10000;
-        overflow: hidden;
-    }
-
-    /* LIGHTBOX AKTIF */
-    #imageLightbox.active {
-        display: flex;
-    }
-
-    #lightboxImage {
-        display: block;
-
-        max-width: 85vw;
-        max-height: 85vh;
-
-        width: auto;
-        height: auto;
-
-        object-fit: contain;
-        margin: auto;
-
-        touch-action: pan-y;
-        user-select: none;
-        -webkit-user-drag: none;
-    }
 
    /* ========================================
    RESPONSIVE TABLET
@@ -1977,10 +1970,42 @@
         font-size: 25px;
     }
 
+    #imageLightbox {
+        width: 100%;
+        height: 100%;
+        height: 100dvh;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 0;
+    }
+
+    #lightboxImage {
+        max-width: 90vw;
+        max-height: 80vh;
+        max-height: 80dvh;
+
+        width: auto;
+        height: auto;
+
+        object-fit: contain;
+
+        margin: 0 auto;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+
+        font-size: 32px;
+    }
+
     .lightbox-prev,
     .lightbox-next {
         width: 40px;
         height: 40px;
+
         font-size: 22px;
     }
 
@@ -1990,47 +2015,6 @@
 
     .lightbox-next {
         right: 10px;
-    }
-
-    #imageLightbox {
-        position: fixed;
-        inset: 0;
-
-        width: 100%;
-        height: 100%;
-        height: 100dvh;
-
-        display: none;
-        justify-content: center;
-        align-items: center;
-
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    #imageLightbox.active {
-        display: flex;
-    }
-
-    #lightboxImage {
-        display: block;
-
-        width: auto;
-        height: auto;
-
-        max-width: 90%;
-        max-height: 80%;
-
-        width: auto;
-        height: auto;
-
-        object-fit: contain;
-
-        margin: 0 auto;
-
-        position: relative;
-        left: auto;
-        transform: none;
     }
 }
 
