@@ -752,37 +752,206 @@ a {
         visibility: visible;
     }
 
-
-.peta-pelayanan {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* our services */
+.our-program {
+    padding: 60px clamp(20px, 5vw, 80px);
     margin: 0 auto;
-    width: 100%;
-    min-width: 0;
-    max-width: 1200px;
-    padding: 20px 40px;
-    box-sizing: border-box;
 }
 
-.peta-pelayanan h2 {
-    display: flex;
+.our-services h2 {
+    font-family: var(--font-heading);
+
     font-size: 34px;
-    padding: 20px 0;
+
+    line-height: 1.1;
+
+    color: var(--navy);
+
+    margin: 0 0 18px;
 }
 
-.peta-jangkauan {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+.our-services .bible-translation {
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 10px;
+    padding-left: 30px;
 }
 
-.peta-jangkauan img {
-    display: block;
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    object-fit: contain;
+#pena {
+    scroll-margin-top: 250px;
+}
+
+.bible-translation > summary {
+    font-size: 1.5rem;
+    font-weight:bolder;
+    padding-bottom: 10px;
+    letter-spacing: 5px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.bible-translation > summary::webkit-details-marker {
+    display: none;
+}
+
+.bible-translation > summary::after{
+    content: "▶";
+    float: left;
+    transition: transform 0.3s ease;
+}
+
+.bible-translation[open] > summary::after {
+    transform: rotate(90deg);
+}
+
+.bible-translation {
+    display: grid;
+    grid-template-rows: 0fr;
+    transform: grid-template-rows 0.35s ease;
+}
+
+.our-services .method {
+    overflow: hidden;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+
+.method > summary {
+    font-size: 1.2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:bolder;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 5px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.method > summary::webkit-details-marker {
+    display: none;
+}
+
+.method > summary::after {
+    content: "▶";
+    float: left;
+    transition: transform 0.3s ease;
+}
+
+.method[open] > summary::after {
+    transform: rotate(90deg);
+}
+
+.method {
+    display: grid;
+    grid-template-rows: 0fr;
+    transform: grid-template-rows 0.35s ease;
+}
+
+.method p {
+    text-align: justify;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-right: 200px;
+    padding-left: 25px;
+    line-height: 2rem;
+    padding-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.our-services .studies {
+    overflow: hidden;
+    border-radius: 10px;
+    padding-left: 30px;
+}
+
+#pendidikan {
+    scroll-margin-top: 300px;
+}
+
+.studies summary {
+    font-size: 1.5rem;
+    font-weight:bolder;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    letter-spacing: 5px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.studies summary::webkit-details-marker {
+    display: none;
+}
+
+.studies summary::after{
+    content: "▶";
+    float: left;
+    transition: transform 0.3s ease;
+}
+
+.studies[open] summary::after {
+    transform: rotate(90deg);
+}
+
+.studies {
+    display: grid;
+    grid-template-rows: 0fr;
+    transform: grid-template-rows 0.35s ease;
+}
+
+.studies p {
+    padding-right: 200px;
+    padding-left: 25px;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.our-services .missionary {
+    overflow: hidden;
+    border-radius: 10px;
+    padding-left: 30px;
+}
+
+#misionaris {
+    scroll-margin-top: 400px;
+}
+
+.missionary summary {
+    font-size: 1.5rem;
+    font-weight:bolder;
+    padding-bottom: 10px;
+    letter-spacing: 5px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.missionary summary::webkit-details-marker {
+    display: none;
+}
+
+.missionary summary::after{
+    content: "▶";
+    float: left;
+    transition: transform 0.3s ease;
+}
+
+.missionary[open] summary::after {
+    transform: rotate(90deg);
+}
+
+.missionary {
+    display: grid;
+    grid-template-rows: 0fr;
+    transform: grid-template-rows 0.35s ease;
+}
+
+.missionary p {
+    padding-right: 200px;
+    padding-left: 25px;
+    font-size: 1.2rem;
+    line-height: 2rem;
 }
 
 /* =====================================
@@ -790,34 +959,40 @@ a {
 ===================================== */
 
 .our-values {
+    background-image: url('../asset/img/background homepage/Misty\ Mountain\ Village at Sunrise.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     display: grid;
+    position: relative;
 
     grid-template-columns: 1.1fr 2.9fr;
 
     align-items: center;
 
-    gap: 45px;
+    gap: 100px 45px;
 
     padding: 65px 9%;
-
-    background:
-
-        linear-gradient(
-            rgba(7, 26, 51, 0.94),
-            rgba(7, 26, 51, 0.94)
-        ),
-
-        url("../img/background-about.jpg");
-
-    background-size: cover;
-
-    background-position: center;
 
     color: white;
 
 }
 
+.our-values::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7, 26, 51, 0.9);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.values-introduction {
+    position: relative;
+}
 
 .values-introduction h2 {
 
@@ -844,7 +1019,7 @@ a {
 
 
 .values-list {
-
+    position: relative;
     display: grid;
 
     align-items: center;
@@ -894,7 +1069,6 @@ a {
 
 }
 
-
 .value-item h3 {
 
     font-size: 13px;
@@ -904,7 +1078,6 @@ a {
     line-height: 1.5;
 
 }
-
 
 .value-item p {
 
@@ -916,6 +1089,35 @@ a {
 
 }
 
+.peta-pelayanan {
+    position: relative;
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.peta-jangkauan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.peta-jangkauan img {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+
+    cursor: zoom-in;
+
+    transition: transform 0.3s ease;
+}
 
 /* =====================================
    IMPACT SECTION

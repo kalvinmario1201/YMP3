@@ -50,6 +50,14 @@ const closeLightbox = document.getElementById("lightboxClose");
 const prevLightbox = document.getElementById("lightboxPrev");
 const nextLightbox = document.getElementById("lightboxNext")
 
+const mapImage = document.querySelector(".peta-jangkauan img");
+
+if (mapImage) {
+    mapImage.addEventListener("click", () => {
+        openLightbox([mapImage], 0);
+    });
+}
+
 let currentImageIndex = 0;
 let activeImage = [];
 
