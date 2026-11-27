@@ -822,7 +822,7 @@ a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight:bolder;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     letter-spacing: 5px;
     cursor: pointer;
     list-style: none;
@@ -848,16 +848,6 @@ a {
     grid-template-rows: 0fr;
     transform: grid-template-rows 0.35s ease;
 }
-
-/* .method p {
-    text-align: justify;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding-right: 200px;
-    padding-left: 25px;
-    line-height: 2rem;
-    padding-bottom: 30px;
-    font-size: 1.2rem;
-} */
 
 .onestory {
     display: grid;
@@ -917,7 +907,8 @@ a {
         width: 100%;
         max-width: 1200px;
         min-width: 0;
-        height: 300px;
+        height: 100%;
+        max-height: 340px;
         object-fit: cover;
         display: block;
     }
@@ -946,11 +937,273 @@ a {
         visibility: visible;
     }
 
+    .obt {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-areas: "text slider";
+    
+    align-items: center;
+    gap: 20px;
 
-.our-services .studies {
+    width: 100%;
+    max-width: 1200px;
+    
+    padding: 8px 25px;
+    margin: 0 auto;
+
+    box-sizing: border-box;
+}
+
+.obt-text {
+    min-width: 0;
+}
+
+.obt p {
+    margin: 0 0 16px;
+    padding: 0px;
+    text-align: justify;
+    line-height: 2rem;
+    min-width: 0;
+}
+
+/* slider */
+    .obt-image-slider {
+        grid-area: slider;
+        grid-column: 2;
+        grid-row: 1;
+        position: relative ;
+        display: flex;
+        align-self: center;
+
+        width: 100%;
+        max-width: 500px;
+        min-width: 0;
+
+        margin: 0;
+        overflow: hidden;
+        border-radius: 12px;
+
+        /* fitur swipe untuk touchscreen */
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .obt-image-slider .slide {
+        display: flex;
+        width: 100%;
+        transition: transform 0.5s ease;
+    }
+
+    .obt-image-slider .slide img {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 1200px;
+        min-width: 0;
+        height: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .obt-image-slider .prev-button,
+    .obt-image-slider .next-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 28px;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;;
+    }
+
+    .obt-image-slider:hover .prev-button,
+    .obt-image-slider:hover .next-button {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .scripture {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 20px;
+    grid-template-areas: "text slider";
+
+    width: 100%;
+    max-width: 1200px;
+    
+    padding: 8px 25px;
+    margin: 0 auto;
+
+    box-sizing: border-box;
+}
+
+.scripture p {
+    grid-area: text;
+    margin: 0;
+    padding: 0px;
+    text-align: justify;
+    line-height: 2rem;
+    min-width: 0;
+}
+
+/* slider */
+    .scripture-image-slider {
+        grid-area: slider;
+
+        position: relative ;
+        display: flex;
+        align-self: center;
+
+        width: 100%;
+        max-width: 500px;
+        min-width: 0;
+
+        margin: 0;
+        overflow: hidden;
+        border-radius: 12px;
+
+        /* fitur swipe untuk touchscreen */
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .scripture-image-slider .slide {
+        display: flex;
+        width: 100%;
+        transition: transform 0.5s ease;
+    }
+
+    .scripture-image-slider .slide img {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 1200px;
+        min-width: 0;
+        height: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .scripture-image-slider .prev-button,
+    .scripture-image-slider .next-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 28px;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;;
+    }
+
+    .scripture-image-slider:hover .prev-button,
+    .scripture-image-slider:hover .next-button {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+.our-services > .studies {
+    display: block;
+    width: 100%;
     overflow: hidden;
     border-radius: 10px;
     padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.studies-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1200px;
+    padding: 0px 10px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.studies-text {
+    grid-column: 1;
+    text-align: justify;
+    line-height: 2rem;
+    margin: 0;
+    padding: 0px;
+    min-width: 0;
+}
+
+.studies-image-slider {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    align-self: center;
+
+    width: 100%;
+    max-width: 500px;
+    min-width: 0;
+
+    margin: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.studies-image-slider .slide {
+        display: flex;
+        width: 100%;
+        transition: transform 0.5s ease;
+    }
+
+.studies-image-slider .slide img {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 0;
+    height: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.studies-image-slider .prev-button,
+.studies-image-slider .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;;
+}
+
+.studies-image-slider:hover .prev-button,
+.studies-image-slider:hover .next-button {
+    opacity: 1;
+    visibility: visible;
 }
 
 #pendidikan {
@@ -982,23 +1235,81 @@ a {
     transform: rotate(90deg);
 }
 
-.studies {
+.missionary-content {
     display: grid;
-    grid-template-rows: 0fr;
-    transform: grid-template-rows 0.35s ease;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1200px;
+    padding: 0px 10px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
-.studies p {
-    padding-right: 200px;
-    padding-left: 25px;
-    font-size: 1.2rem;
+.missionary-text {
+    grid-column: 1;
+    text-align: justify;
     line-height: 2rem;
+    margin: 0;
+    padding: 0px;
+    min-width: 0;
 }
 
-.our-services .missionary {
+.missionary-image-slider {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    align-self: center;
+
+    width: 100%;
+    max-width: 500px;
+    min-width: 0;
+
+    margin: 0;
     overflow: hidden;
-    border-radius: 10px;
-    padding-left: 30px;
+    border-radius: 12px;
+}
+
+.missionary-image-slider .slide {
+        display: flex;
+        width: 100%;
+        transition: transform 0.5s ease;
+    }
+
+.missionary-image-slider .slide img {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 0;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.missionary-image-slider .prev-button,
+.missionary-image-slider .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;;
+}
+
+.missionary-image-slider:hover .prev-button,
+.missionary-image-slider:hover .next-button {
+    opacity: 1;
+    visibility: visible;
 }
 
 #misionaris {
@@ -1029,17 +1340,11 @@ a {
     transform: rotate(90deg);
 }
 
-.missionary {
-    display: grid;
-    grid-template-rows: 0fr;
-    transform: grid-template-rows 0.35s ease;
-}
-
-.missionary p {
-    padding-right: 200px;
-    padding-left: 25px;
-    font-size: 1.2rem;
-    line-height: 2rem;
+.our-services > .bible-translation,
+.our-services > .studies,
+.our-services > .missionary {
+    padding-left: 30px;
+    box-sizing: border-box;
 }
 
 /* =====================================
@@ -1592,6 +1897,17 @@ a {
         padding: 10px 15px;
     }
 
+    .studies-content,
+    .missionary-content {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 18px;
+    }
+
+    .studies-image-slider,
+    .missionary-image-slider {
+        max-width: 420px;
+    }
+
     /* OUR VALUES */
     .our-values {
         grid-template-columns: 1fr;
@@ -1834,6 +2150,23 @@ a {
         right: 10px;
     }
 
+    .studies-content,
+    .missionary-content {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+        gap: 15px;
+        padding: 8px 15px;
+    }
+
+    .studies-text p,
+    .missionary-text p {
+        font-size: 0.95rem;
+        line-height: 1.8rem;
+    }
+
+    .studies-image-slider,
+    .missionary-image-slider {
+        max-width: 350px;
+    }
 
     /* ================= PETA PELAYANAN ================= */
 
@@ -2004,6 +2337,29 @@ a {
     .onestory-image-slider .slide img {
         height: 250px;
     }
+
+    .studies-content,
+    .missionary-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px 15px;
+    }
+
+    .studies-text,
+    .missionary-text {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .studies-image-slider,
+    .missionary-image-slider {
+        grid-column: 1;
+        grid-row: 2;
+
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
 }
 
 /* =====================================
@@ -2083,6 +2439,25 @@ a {
         height: 230px;
     }
 
+    .studies-content,
+    .missionary-content {
+        gap: 15px;
+        padding: 8px 5px;
+    }
+
+    .studies-text p,
+    .missionary-text p {
+        font-size: 0.9rem;
+        line-height: 1.7rem;
+        text-align: left;
+    }
+
+    .studies-image-slider,
+    .missionary-image-slider {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 10px;
+    }
 
     /* ================= PETA ================= */
 

@@ -40,6 +40,42 @@ const onestoryPrev = onestoryContainer?.querySelector(".prev-button");
 const onestoryNext = onestoryContainer?.querySelector(".next-button");
 const onestoryDots = onestoryContainer?.querySelectorAll(".dot");
 
+// slider obt YMP3
+const obtContainer = document.querySelector(".obt-image-slider");
+
+const obtImages = obtContainer?.querySelectorAll("img");
+const obtSlides = obtContainer?.querySelector(".slide");
+const obtPrev = obtContainer?.querySelector(".prev-button");
+const obtNext = obtContainer?.querySelector(".next-button");
+const obtDots = obtContainer?.querySelectorAll(".dot");
+
+// slider terjemahan tertulis
+const scriptureContainer = document.querySelector(".scripture-image-slider");
+
+const scriptureImages = scriptureContainer?.querySelectorAll("img");
+const scriptureSlides = scriptureContainer?.querySelector(".slide");
+const scripturePrev = scriptureContainer?.querySelector(".prev-button");
+const scriptureNext = scriptureContainer?.querySelector(".next-button");
+const scriptureDots = scriptureContainer?.querySelectorAll(".dot");
+
+// slider pendidikan
+const studiesContainer = document.querySelector(".studies-image-slider");
+
+const studiesImages = studiesContainer?.querySelectorAll("img");
+const studiesSlides = studiesContainer?.querySelector(".slide");
+const studiesPrev = studiesContainer?.querySelector(".prev-button");
+const studiesNext = studiesContainer?.querySelector(".next-button");
+const studiesDots = studiesContainer?.querySelectorAll(".dots");
+
+// slider misionaris
+const missionaryContainer = document.querySelector(".missionary-image-slider");
+
+const missionaryImages = missionaryContainer?.querySelectorAll("img");
+const missionarySlides = missionaryContainer?.querySelector(".slide");
+const missionaryPrev = missionaryContainer?.querySelector(".prev-button");
+const missionaryNext = missionaryContainer?.querySelector(".next-button");
+const missionaryDots = missionaryContainer?.querySelectorAll(".dots");
+
 const searchToggle = document.querySelector(".search-toggle");
 const searchBox = document.querySelector(".search-box");
 
@@ -49,7 +85,7 @@ const searchClose = document.querySelector(".search-close");
 const readMore = document.querySelector(".read-more");
 
 // image group
-const imageGroups = document.querySelectorAll(".visi-image-slider, .content-image-slider, .impact-image-slider, .onestory-image-slider");
+const imageGroups = document.querySelectorAll(".visi-image-slider, .content-image-slider, .impact-image-slider, .onestory-image-slider, .obt-image-slider, .scripture-image-slider, .studies-image-slider, .missionary-image-slider");
 
 const lightbox = document.getElementById("imageLightbox");
 const lightboxImage = document.getElementById("lightboxImage");
@@ -413,6 +449,18 @@ setupSlider(document.querySelector(".impact-image-slider"));
 
 // JALANKAN SLIDER ONESTORY
 setupSlider(document.querySelector(".onestory-image-slider"));
+
+// JALANKAN SLIDER OBT
+setupSlider(document.querySelector(".obt-image-slider"));
+
+// JALANKAN SLIDER TERJEMAHAN TERTULIS
+setupSlider(document.querySelector(".scripture-image-slider"));
+
+// JALANKAN SLIDER PENDIDIKAN
+setupSlider(document.querySelector(".studies-image-slider"));
+
+// JALANKAN SLIDER MISIONARIS
+setupSlider(document.querySelector(".missionary-image-slider"));
 
 function toggleText(id, button) {
     const text = document.getElementById(id);
