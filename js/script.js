@@ -812,22 +812,26 @@ lightboxImage?.addEventListener("touchend", event => {
         return;
     }
 
-    // DOUBLE TAP ZOOM
-    if ( touchGesture === "swipe" && event.changedTouches.length === 1
-    ) {
+    if (event.changedTouches.length === 1) {
+
         const touch = event.changedTouches[0];
         const now = Date.now();
+
         const touchDuration = now - touchStartTime;
 
         const movementX = Math.abs(touch.clientX - touchStartX);
         const movementY = Math.abs(touch.clientY - touchStartY);
 
-        const isTap = 
+        const isTap =
             touchDuration < 250 &&
-            movementX <15 &&
+            movementX < 15 &&
             movementY < 15;
-        
+
+        let isDoubleTap = false;
+
+        // DETEKSI DOUBLE TAP
         if (isTap) {
+
             const tapDistance = Math.sqrt(
                 Math.pow(touch.clientX - lastTapX, 2) +
                 Math.pow(touch.clientY - lastTapY, 2)
@@ -835,45 +839,57 @@ lightboxImage?.addEventListener("touchend", event => {
 
             if (
                 now - lastTapTime < 300 &&
-                tapDistance <30
+                tapDistance < 30
             ) {
+
+                isDoubleTap = true;
+                lastTapTime = 0;
+
+                // ZOOM OUT
                 if (lightboxScale > 1) {
                     resetZoom();
-                } else {
+                }
+
+                // ZOOM IN
+                else {
                     lightboxScale = Math.min(2, MAX_ZOOM);
                     updateImageTransform();
                 }
 
-                lastTapTime = 0;
             } else {
+
                 lastTapTime = now;
                 lastTapX = touch.clientX;
                 lastTapY = touch.clientY;
+
             }
+
+        } else {
+
+            lastTapTime = 0;
+
         }
-    }
 
-    // SWIPE UNTUK BERPINDAH GAMBAR
-    if (
-        touchGesture === "swipe" &&
-        event.changedTouches.length === 1
-    ) {
-
-        const touchEndX = event.changedTouches[0].clientX;
-        const touchEndY = event.changedTouches[0].clientY;
-
-        const differenceX = touchStartX - touchEndX;
-        const differenceY = touchStartY - touchEndY;
-
+        // SWIPE UNTUK BERPINDAH GAMBAR
         if (
-            Math.abs(differenceX) > 50 &&
-            Math.abs(differenceX) > Math.abs(differenceY)
+            !isDoubleTap &&
+            touchGesture === "swipe"
         ) {
 
-            if (differenceX > 0) {
-                nextImage();
-            } else {
-                prevImage();
+            const differenceX = touchStartX - touch.clientX;
+            const differenceY = touchStartY - touch.clientY;
+
+            if (
+                Math.abs(differenceX) > 50 &&
+                Math.abs(differenceX) > Math.abs(differenceY)
+            ) {
+
+                if (differenceX > 0) {
+                    nextImage();
+                } else {
+                    prevImage();
+                }
+
             }
 
         }
@@ -885,7 +901,6 @@ lightboxImage?.addEventListener("touchend", event => {
     }
 
 }, { passive: true });
-
 
 // ================= TOUCH CANCEL =================
 
