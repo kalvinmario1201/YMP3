@@ -700,7 +700,7 @@ let lastTapX = 0;
 let lastTapY = 0;
 let touchStartTime = 0;
 
-let closeSwipeThereshold = 100;
+let closeSwipeThreshold = 100;
 
 function getPinchDistance(touch1, touch2) {
     const dx = touch2.clientX - touch1.clientX;
