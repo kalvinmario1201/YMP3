@@ -700,6 +700,8 @@ let lastTapX = 0;
 let lastTapY = 0;
 let touchStartTime = 0;
 
+let closeSwipeThereshold = 100;
+
 function getPinchDistance(touch1, touch2) {
     const dx = touch2.clientX - touch1.clientX;
     const dy = touch2.clientY - touch1.clientY;
@@ -867,6 +869,29 @@ lightboxImage?.addEventListener("touchend", event => {
         } else {
 
             lastTapTime = 0;
+
+        }
+        
+        // SWIPE KE BAWAH UNTUK MENUTUP LIGHTBOX
+        if (
+            !isDoubleTap &&
+            touchGesture === "swipe" &&
+            lightboxScale <= 1
+        ) {
+
+            const differenceY = touch.clientY - touchStartY;
+            const differenceX = touch.clientX - touchStartX;
+
+            if (
+                differenceY > closeSwipeThreshold &&
+                differenceY > Math.abs(differenceX)
+            ) {
+
+                closeImageLightbox();
+                lastTapTime = 0;
+                return;
+
+            }
 
         }
 
