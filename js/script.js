@@ -372,13 +372,28 @@ let startOffsetX = 0;
 let startOffsetY = 0;
 
 const MIN_ZOOM = 1;
-const MAX_ZOOM = 4;
+const MAX_ZOOM = 6;
 const ZOOM_STEP = 0.5;
 
 
 // ================= ZOOM =================
 
+function limitImagePosition () {
+    const rect = lightboxImage.getBoundingClientRect();
+
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    const maxX = Math.max(0, (rect.width - screenWidth) / 2);
+    const maxY = Math.max(0, (rect.height - screenHeight) / 2);
+
+    imageOffsetX = Math.max(-maxX, Math.min(maxX, imageOffsetX));
+    imageOffsetY = Math.max(-maxY, Math.min(maxY, imageOffsetY));
+}
+
 function updateImageTransform() {
+    limitImagePosition();
+
     lightboxImage.style.transform = `
         translate(${imageOffsetX}px, ${imageOffsetY}px)
         scale(${lightboxScale})
@@ -419,6 +434,7 @@ function resetZoom() {
 
     updateImageTransform();
 }
+
 
 // ================= MOUSE DRAG =================
 
@@ -679,6 +695,11 @@ let initialPinchDistance = 0;
 let initialPinchScale = 1;
 let touchGesture = null;
 
+let lastTapTime = 0;
+let lastTapX = 0;
+let lastTapY = 0;
+let touchStartTime = 0;
+
 function getPinchDistance(touch1, touch2) {
     const dx = touch2.clientX - touch1.clientX;
     const dy = touch2.clientY - touch1.clientY;
@@ -709,6 +730,8 @@ lightboxImage?.addEventListener("touchstart", event => {
 
         touchStartX = event.touches[0].clientX;
         touchStartY = event.touches[0].clientY;
+
+        touchStartTime = Date.now();
 
         startOffsetX = imageOffsetX;
         startOffsetY = imageOffsetY;
@@ -787,6 +810,47 @@ lightboxImage?.addEventListener("touchend", event => {
         }
 
         return;
+    }
+
+    // DOUBLE TAP ZOOM
+    if ( touchGesture === "swipe" && event.changedTouches.length === 1
+    ) {
+        const touch = event.changedTouches[0];
+        const now = Date.now();
+        const touchDuration = now - touchStartTime;
+
+        const movementX = Math.abs(touch.clientX - touchStartX);
+        const movementY = Math.abs(touch.clientY - touchStartY);
+
+        const isTap = 
+            touchDuration < 250 &&
+            movementX <15 &&
+            movementY < 15;
+        
+        if (isTap) {
+            const tapDistance = Math.sqrt(
+                Math.pow(touch.clientX - lastTapX, 2) +
+                Math.pow(touch.clientY - lastTapY, 2)
+            );
+
+            if (
+                now - lastTapTime < 300 &&
+                tapDistance <30
+            ) {
+                if (lightboxScale > 1) {
+                    resetZoom();
+                } else {
+                    lightboxScale = Math.min(2, MAX_ZOOM);
+                    updateImageTransform();
+                }
+
+                lastTapTime = 0;
+            } else {
+                lastTapTime = now;
+                lastTapX = touch.clientX;
+                lastTapY = touch.clientY;
+            }
+        }
     }
 
     // SWIPE UNTUK BERPINDAH GAMBAR
